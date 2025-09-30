@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Conjunctions</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base Configuration & Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fee7; /* Very light lime/mint green background */
+            color: #1a202c; /* Dark text for contrast */
+        }
+
+        /* General Card & Fade-in Animation */
+        .card-animate {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.3s ease;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom style for the Nepali definition block */
+        .nepali-definition {
+            font-family: 'Martel Sans', sans-serif; 
+            font-weight: 700;
+            color: #10b981; /* Teal for contrast */
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 2px solid #34d399; /* Light green border */
+            background-color: #ecfdf5; /* Very light green background */
+            border-radius: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        /* Specific Styling for Highlighted Conjunctions */
+        .highlighted-conjunction {
+            background-color: #fcd34d; /* Bright Yellow highlight */
+            color: #92400e; /* Dark brown text on highlight */
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header: Vibrant Gradient -->
+    <header class="bg-gradient-to-r from-teal-500 to-green-600 shadow-2xl p-6 text-white sticky top-0 z-10 rounded-b-xl">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide">
+            ENGLISH GRAMMAR: CONJUNCTIONS 
+        </h1>
+        <p class="mt-1 text-teal-100 text-sm sm:text-base">Joining words, phrases, and clauses elegantly.</p>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mb-20">
+
+        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl mt-8 card-animate">
+            <h2 class="text-2xl sm:text-3xl font-bold text-teal-700 mb-4 border-b-2 border-green-400 pb-2">
+                What is a Conjunction?
+            </h2>
+            <p class="text-lg text-justify leading-relaxed mb-4">
+                A **conjunction** is a connecting word that joins words, phrases, or clauses (sentences). They help create complex and elegant sentences, ensuring the flow of ideas is smooth and logical.
+            </p>
+
+            <!-- Nepali Definition -->
+            <div class="nepali-definition">
+                <p>
+                    <strong>परिभाषा:</strong> दुई वा दुई भन्दा बढी शब्दहरू, वाक्यांशहरू (Phrases), वा उपवाक्यहरू (Clauses) लाई जोड्ने काम गर्ने शब्दलाई संयोजक (Conjunction) भनिन्छ । यसले वाक्यमा विचारहरूको सम्बन्ध स्पष्ट गर्न मद्दत गर्दछ ।
+                </p>
+            </div>
+
+            <p class="text-xl font-semibold text-gray-700 mt-6 mb-4">Examples in action:</p>
+            <ol class="list-decimal list-inside text-lg space-y-3 bg-gray-50 p-4 rounded-lg">
+                <li>Hari <span class="highlighted-conjunction">and</span> Ram are brothers.</li>
+                <li>Two <span class="highlighted-conjunction">plus</span> two equals four.</li>
+                <li>Ajay is poor <span class="highlighted-conjunction">but</span> honest.</li>
+                <li>I drink water <span class="highlighted-conjunction">because</span> I was thirsty.</li>
+            </ol>
+        </div>
+
+        <!-- FANBOYS Section -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.2s;">
+            <h3 class="text-2xl font-bold text-green-700 mb-4">Coordinating Conjunctions: FANBOYS</h3>
+            <p class="text-lg mb-4">
+                Coordinating conjunctions connect two equal elements (words, phrases, or independent clauses). The acronym **FANBOYS** is a classic way to remember them:
+            </p>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-7 gap-3 text-center mb-6">
+                <span class="bg-red-400 text-white font-bold p-3 rounded-full shadow-md">F - For</span>
+                <span class="bg-orange-400 text-white font-bold p-3 rounded-full shadow-md">A - And</span>
+                <span class="bg-amber-400 text-white font-bold p-3 rounded-full shadow-md">N - Nor</span>
+                <span class="bg-yellow-400 text-gray-800 font-bold p-3 rounded-full shadow-md">B - But</span>
+                <span class="bg-lime-400 text-gray-800 font-bold p-3 rounded-full shadow-md">O - Or</span>
+                <span class="bg-green-400 text-white font-bold p-3 rounded-full shadow-md">Y - Yet</span>
+                <span class="bg-teal-400 text-white font-bold p-3 rounded-full shadow-md">S - So</span>
+            </div>
+
+            <h4 class="text-xl font-semibold text-gray-700 mt-4 mb-3">FANBOYS Examples:</h4>
+            <ul class="list-none space-y-3 text-lg">
+                <li class="p-2 bg-gray-100 rounded-md">He was tired <span class="highlighted-conjunction">and</span> hungry.</li>
+                <li class="p-2 bg-gray-100 rounded-md">I can't whistle, <span class="highlighted-conjunction">nor</span> can I sing.</li>
+                <li class="p-2 bg-gray-100 rounded-md">Jay studies hard, <span class="highlighted-conjunction">but</span> he couldn't clear the exam.</li>
+                <li class="p-2 bg-gray-100 rounded-md">I run fast, <span class="highlighted-conjunction">yet</span> I came last.</li>
+                <li class="p-2 bg-gray-100 rounded-md">I was hungry, <span class="highlighted-conjunction">so</span> I ate the food.</li>
+            </ul>
+        </div>
+        
+        <!-- Other Common Examples -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.4s;">
+            <h3 class="text-2xl font-bold text-teal-700 mb-4">Subordinating & Correlative Examples</h3>
+            <p class="text-lg mb-4">
+                Conjunctions also include correlative pairs (like 'neither...nor') and subordinating conjunctions (like 'because' or 'if').
+            </p>
+            <ul class="list-disc list-inside space-y-3 text-lg pl-2">
+                <li>She likes <span class="highlighted-conjunction">both</span> pizza <span class="highlighted-conjunction">and</span> pasta. (Correlative)</li>
+                <li>I woke up early <span class="highlighted-conjunction">so</span> I could catch the sunrise. (Subordinating)</li>
+                <li>The weather was cold, <span class="highlighted-conjunction">yet</span> we decided to go for a picnic.</li>
+                <li>She is <span class="highlighted-conjunction">neither</span> tall <span class="highlighted-conjunction">nor</span> short. (Correlative)</li>
+                <li>The book was interesting, <span class="highlighted-conjunction">but</span> I couldn't finish it.</li>
+                <li>He wanted to play outside, <span class="highlighted-conjunction">but</span> it started raining.</li>
+                <li>She spoke softly, <span class="highlighted-conjunction">yet</span> her words had a powerful impact.</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p class="text-sm">English Grammar</p>
+    </footer>
+</body>
+</html>

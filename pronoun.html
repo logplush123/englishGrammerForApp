@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering English Pronouns</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Nepali:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4; /* Light Green Background */
+        }
+
+        .nepali-text {
+            font-family: 'Noto Sans Nepali', sans-serif;
+            color: #047857; /* Dark Teal */
+            font-weight: 600;
+        }
+
+        /* Card transition for animation */
+        .card-transition {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-transition:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(6, 78, 59, 0.15); /* Shadow with slight green tint */
+        }
+        
+        /* Custom list style for exercises (mobile-friendly arrows) */
+        .exercise-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exercise-list li::before {
+            content: '➤'; /* Arrow */
+            position: absolute;
+            left: 0;
+            color: #10b981; /* Emerald Green */
+            font-weight: bold;
+        }
+
+        /* Fixed Footer on large screens, relative on small */
+        @media (max-width: 640px) {
+            .footer-fixed {
+                position: relative; 
+            }
+        }
+        
+        /* *** Specific mobile optimization for the complex pronoun case table (as requested) ***
+        Ensures the table and text shrink on small screens (max-width: 640px)
+        */
+        @media only screen and (max-width: 640px) {
+            .pronoun-case-table {
+                font-size: 0.75rem; /* text-xs (12px) */
+                min-width: 550px; /* Ensure minimum width to prevent excessive squishing */
+            }
+            .pronoun-case-table th, 
+            .pronoun-case-table td {
+                padding: 4px; /* Reduced padding for compactness */
+            }
+            /* Adjust the P1 column text size down further for the long title */
+            .pronoun-case-table .p1-header {
+                font-size: 0.625rem; /* text-2xs (10px) for the long header */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-emerald-700 shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 sm:py-6">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-white text-center tracking-tight">
+                ENGLISH GRAMMAR: PRONOUNS
+            </h1>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container mx-auto px-4 py-8 sm:p-10 lg:p-12 mb-20">
+        
+        <!-- Definition Section -->
+        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border-t-4 border-emerald-500 mb-10 card-transition">
+            <h2 class="text-3xl font-bold text-center text-emerald-700 mb-4 border-b-2 border-gray-200 pb-2">
+                Pronoun (सर्वनाम)
+            </h2>
+            <p class="text-lg text-gray-700 leading-relaxed text-justify mb-4 sm:text-xl">
+                A **Pronoun** is a word that is used **in place of a noun** (or noun phrase) to avoid its repetition.
+                <span class="nepali-text block mt-2 text-base italic">
+                    (सर्वनाम: नाम (Noun) को सट्टामा प्रयोग हुने शब्दलाई सर्वनाम भनिन्छ, जसले गर्दा नाम बारम्बार दोहोरिनु पर्दैन।)
+                </span>
+            </p>
+            <p class="text-base font-semibold text-gray-600 mt-4">
+                Examples of Pronoun usage:
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm sm:text-base mt-2">
+                <span class="bg-green-100 p-2 rounded-lg font-mono text-center">She is Sita.</span>
+                <span class="bg-green-100 p-2 rounded-lg font-mono text-center">We are friends.</span>
+                <span class="bg-green-100 p-2 rounded-lg font-mono text-center">You are Rajan.</span>
+                <span class="bg-green-100 p-2 rounded-lg font-mono text-center">This is a pen.</span>
+            </div>
+        </div>
+        
+        <!-- Types of Pronoun -->
+        <h3 class="text-2xl font-bold text-emerald-700 mt-10 mb-6">
+            Types of Pronouns (सर्वनामका प्रकारहरू)
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-emerald-50 rounded-xl shadow-inner">
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">1. Personal Pronoun</div>
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">2. Reflexive & Emphatic</div>
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">3. Demonstrative Pronoun</div>
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">4. Distributive Pronoun</div>
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">5. Interrogative Pronoun</div>
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">6. Relative Pronoun</div>
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">7. Reciprocal Pronoun</div>
+            <div class="text-base font-semibold text-gray-800 bg-white p-2 rounded-lg shadow-sm text-center card-transition">8. Indefinite Pronoun</div>
+        </div>
+
+        <!-- 1. Personal Pronoun Section -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                1. Personal Pronoun (व्यक्तिगत सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                These pronouns are used for specific persons, animals, objects, or groups. They change their form based on the person (1st, 2nd, 3rd) and case (Subjective, Objective, Possessive).
+                <span class="nepali-text block mt-2 text-sm">
+                    (यी सर्वनामहरू व्यक्ति, जनावर वा वस्तुको लागि प्रयोग गरिन्छन् । तिनीहरू पुरुष (Person) र कारक (Case) अनुसार फरक हुन्छन् ।)
+                </span>
+            </p>
+
+            <!-- Case of Personal Pronouns Table -->
+            <h4 class="text-xl font-bold text-emerald-600 mt-5 mb-3">Case of Personal Pronouns (व्यक्तिगत सर्वनामको कारक)</h4>
+            <div class="overflow-x-auto rounded-lg shadow-md border border-gray-200">
+                <!-- Added class 'pronoun-case-table' for mobile styling -->
+                <table class="pronoun-case-table min-w-full bg-white text-sm"> 
+                    <thead class="bg-indigo-100 text-indigo-800 font-bold">
+                        <tr>
+                            <td class="p-3 border border-gray-300">Person</td>
+                            <td class="p-3 border border-gray-300">Subjective (कर्ता)</td>
+                            <td class="p-3 border border-gray-300">Objective (कर्म)</td>
+                            <!-- Added p1-header class for extra small font size on mobile for this long title -->
+                            <td class="p-3 border border-gray-300 p1-header">Possessive Adjective (P1) + Noun</td>
+                            <td class="p-3 border border-gray-300">Possessive Pronoun (P2)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white hover:bg-gray-50">
+                            <td class="p-3 border border-gray-300 font-semibold">1st (Singular)</td>
+                            <td class="p-3 border border-gray-300">I</td>
+                            <td class="p-3 border border-gray-300">Me</td>
+                            <td class="p-3 border border-gray-300 italic text-red-600">My (e.g., *My book*)</td>
+                            <td class="p-3 border border-gray-300 font-bold">Mine</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100">
+                            <td class="p-3 border border-gray-300 font-semibold">1st (Plural)</td>
+                            <td class="p-3 border border-gray-300">We</td>
+                            <td class="p-3 border border-gray-300">Us</td>
+                            <td class="p-3 border border-gray-300 italic text-red-600">Our (e.g., *Our house*)</td>
+                            <td class="p-3 border border-gray-300 font-bold">Ours</td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-50">
+                            <td class="p-3 border border-gray-300 font-semibold">2nd (S/P)</td>
+                            <td class="p-3 border border-gray-300">You</td>
+                            <td class="p-3 border border-gray-300">You</td>
+                            <td class="p-3 border border-gray-300 italic text-red-600">Your (e.g., *Your pen*)</td>
+                            <td class="p-3 border border-gray-300 font-bold">Yours</td>
+                        </tr>
+                        <tr class="bg-gray-50 hover:bg-gray-100">
+                            <td class="p-3 border border-gray-300 font-semibold">3rd (Singular)</td>
+                            <td class="p-3 border border-gray-300">He, She, It</td>
+                            <td class="p-3 border border-gray-300">Him, Her, It</td>
+                            <td class="p-3 border border-gray-300 italic text-red-600">His, Her, Its</td>
+                            <td class="p-3 border border-gray-300 font-bold">His, Hers</td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-50">
+                            <td class="p-3 border border-gray-300 font-semibold">3rd (Plural)</td>
+                            <td class="p-3 border border-gray-300">They</td>
+                            <td class="p-3 border border-gray-300">Them</td>
+                            <td class="p-3 border border-gray-300 italic text-red-600">Their</td>
+                            <td class="p-3 border border-gray-300 font-bold">Theirs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End Case of Personal Pronouns Table -->
+
+            <p class="mt-4 text-sm text-gray-600 italic">
+                **Note:** Possessive Adjectives (P1: *my, our, your*, etc.) must always be followed by a noun. Possessive Pronouns (P2: *mine, ours, yours*, etc.) can stand alone.
+                <span class="nepali-text block mt-1 text-xs font-normal">
+                    (ध्यान दिनुहोस्: Possessive Adjectives (P1) पछि सधैं संज्ञा (Noun) आउँछ, तर Possessive Pronouns (P2) एक्लै प्रयोग हुन सक्छ।)
+                </span>
+            </p>
+            <p class="mt-2 text-base font-semibold">
+                Example: <span class="text-blue-600 font-bold">He</span> helped <span class="text-blue-600 font-bold">me</span> giving <span class="text-red-600 font-bold">his</span> book.
+            </p>
+        </div>
+
+        <!-- Exercises Section 1: Personal Pronoun -->
+        <div class="mt-8 bg-green-100 p-6 sm:p-8 rounded-xl shadow-lg border-l-8 border-green-500 card-transition">
+            <h4 class="text-2xl font-bold text-green-800 mb-4">Exercise 1: Personal Pronouns</h4>
+            
+            <h5 class="text-xl font-semibold text-gray-700 mb-3">Underline the Personal Pronouns in the following sentences:</h5>
+            <ol class="list-decimal ml-6 space-y-2 text-gray-700 text-base exercise-list">
+                <li>He has lost his diary.</li>
+                <li>He always helps them.</li>
+                <li>I love his friends and mine.</li>
+                <li>Can you do your work yourself?</li>
+                <li>She gave me five chocolates.</li>
+                <li>They respect us a lot.</li>
+                <li>Can you tell me which one is yours?</li>
+                <li>She will teach us science.</li>
+                <li>Mr. Pradhan likes his dog and ours, too.</li>
+                <li>He teaches us English.</li>
+                <li>This cat is hers.</li>
+                <li>His cat is as clever as mine.</li>
+                <li>Reena dances much better than she.</li>
+                <li>He is known to my sister and me.</li>
+                <li>They are as poor as we are.</li>
+                <li>I know it is he who teaches you.</li>
+            </ol>
+            
+            <h5 class="text-xl font-semibold text-gray-700 mt-6 mb-3">Write the correct form of the pronouns from the brackets:</h5>
+            <ol class="list-decimal ml-6 space-y-2 text-gray-700 text-base exercise-list">
+                <li>Let you and (I, **me**) try what we can do.</li>
+                <li>Whom can I trust, if not (he, **him**)?</li>
+                <li>They are not so kind as (**we**, us).</li>
+                <li>She is buying a book for (her, **him**).</li>
+                <li>Can you do it (himself, **yourself**)?</li>
+                <li>Sita visits (his, **her**) aunt every Saturday.</li>
+                <li>Give (ours, **me**) your book.</li>
+                <li>I (**myself**) found the book.</li>
+                <li>Look at (**these**) photographs. They are nice.</li>
+                <li>She is as good as (**I**, me).</li>
+            </ol>
+        </div>
+        
+        <!-- 2. Reflexive and Emphatic Pronoun Section -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                2. Reflexive and Emphatic Pronouns (निजवाचक र जोडदार सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                These are the **self/selves** forms of pronouns (*myself, ourselves, yourself, yourselves, himself, herself, itself, themselves*). The only difference is in their **function** in a sentence.
+                <span class="nepali-text block mt-2 text-sm">
+                    (यी सर्वनामहरू 'self' वा 'selves' बाट बनेका हुन्छन् । यिनीहरूको कामको आधारमा फरक छुट्याइन्छ ।)
+                </span>
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                    <h4 class="text-xl font-bold text-blue-800 mb-2">Reflexive Pronoun (निजवाचक)</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-2">
+                        The action returns or **reflects** upon the subject. It always functions as the **object** of the verb or a preposition and is **essential** to the sentence meaning.
+                        <span class="nepali-text block mt-1 text-xs">
+                            (यसले कर्तामा फर्केर आउने कामलाई जनाउँछ र वाक्यको अर्थको लागि आवश्यक हुन्छ।)
+                        </span>
+                    </p>
+                    <p class="text-base font-mono bg-blue-100 p-2 rounded">
+                        Example: She cooked **herself** a meal.
+                    </p>
+                </div>
+                <div class="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                    <h4 class="text-xl font-bold text-yellow-800 mb-2">Emphatic Pronoun (जोडदार)</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-2">
+                        Used only for **emphasis** (जोड दिन). It typically comes immediately after the noun/pronoun it emphasizes and can be **removed** without destroying the core meaning of the sentence.
+                        <span class="nepali-text block mt-1 text-xs">
+                            (यसले संज्ञा वा सर्वनामलाई **जोड दिन** मात्र प्रयोग हुन्छ र यसलाई हटाउँदा पनि वाक्यको मुख्य अर्थ बिग्रँदैन।)
+                        </span>
+                    </p>
+                    <p class="text-base font-mono bg-yellow-100 p-2 rounded">
+                        Example: He **himself** did it.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercises Section 2: Self-Pronouns -->
+        <div class="mt-8 bg-green-100 p-6 sm:p-8 rounded-xl shadow-lg border-l-8 border-green-500 card-transition">
+            <h4 class="text-2xl font-bold text-green-800 mb-4">Exercise 2: Self-Pronouns</h4>
+            
+            <h5 class="text-xl font-semibold text-gray-700 mb-3">Fill in a suitable form of the self-pronoun:</h5>
+            <ol class="list-decimal ml-6 space-y-2 text-gray-700 text-base exercise-list">
+                <li>A letter can never be written **itself**.</li>
+                <li>Gita and Neha enjoyed **themselves** at the party.</li>
+                <li>All of you are ashamed of **yourselves**.</li>
+                <li>Do this work **yourself** (or yourselves).</li>
+                <li>We should take care of our money **ourselves**.</li>
+                <li>I harmed **myself**.</li>
+                <li>We enjoyed **ourselves** very much at the dance.</li>
+                <li>She had made **herself** very unpopular.</li>
+            </ol>
+            
+            <h5 class="text-xl font-semibold text-gray-700 mt-6 mb-3">Fill in correct 'self-form' pronouns:</h5>
+            <ol class="list-decimal ml-6 space-y-2 text-gray-700 text-base exercise-list">
+                <li>She burned **herself** on the stove.</li>
+                <li>We thoroughly enjoyed **ourselves**.</li>
+                <li>Can you do it **yourself**?</li>
+                <li>Suman cursed **himself** for his stupidity.</li>
+                <li>You and I hurt **ourselves**.</li>
+                <li>I repaired my bike **myself**.</li>
+                <li>Boys, do your work **yourselves**.</li>
+                <li>They looked at **themselves** in the mirror.</li>
+                <li>He tries to free **himself**.</li>
+            </ol>
+        </div>
+        
+        <!-- Other Pronoun Sections follow -->
+
+        <!-- 3. Demonstrative Pronoun Section -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                3. Demonstrative Pronouns (सङ्केतक सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                These pronouns (**This, That, These, Those, Such**) are used to **point out** specific objects or persons.
+                <span class="nepali-text block mt-2 text-sm">
+                    (यी सर्वनामहरू कुनै खास वस्तु वा व्यक्तिलाई **सङ्केत गर्न** प्रयोग गरिन्छन् ।)
+                </span>
+            </p>
+            <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                <li>**This** (singular) and **These** (plural) point out **nearest** things. (यो र यी नजिकका लागि)</li>
+                <li>**That** (singular) and **Those** (plural) point out **farther** things. (त्यो र ती टाढाका लागि)</li>
+            </ul>
+        </div>
+        
+        <!-- 4. Distributive Pronoun Section -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                4. Distributive Pronouns (वितरण सूचक सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                Distributive pronouns (**Each, Either, Neither**) refer to persons or things **one at a time**, even if they are part of a group. They are always followed by a **singular verb**.
+                <span class="nepali-text block mt-2 text-sm">
+                    (यसले समूहमा रहेका व्यक्ति वा वस्तुहरूलाई **एक-एक गरेर** बुझाउँछ र सधैं singular क्रिया (verb) लिन्छ ।)
+                </span>
+            </p>
+            <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                <li>**Each** of the girls **was** beautiful.</li>
+                <li>**Either** of you **can** go.</li>
+                <li>**Neither** of the pens **is** hers.</li>
+            </ul>
+        </div>
+        
+        <!-- 5. Interrogative Pronoun Section -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                5. Interrogative Pronouns (प्रश्नवाचक सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                These pronouns (**Who, Whom, Whose, Which, What**) are used to **ask questions**. When they stand alone and ask a question, they function as pronouns.
+                <span class="nepali-text block mt-2 text-sm">
+                    (यी सर्वनामहरू **प्रश्न सोध्न** प्रयोग हुन्छन् ।)
+                </span>
+            </p>
+            <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                <li>**What** is your name?</li>
+                <li>**Who** is he to you?</li>
+                <li>**Which** is the best book?</li>
+            </ul>
+        </div>
+
+        <!-- Exercises Section 3: Interrogative/Relative -->
+        <div class="mt-8 bg-green-100 p-6 sm:p-8 rounded-xl shadow-lg border-l-8 border-green-500 card-transition">
+            <h4 class="text-2xl font-bold text-green-800 mb-4">Exercise 3: Interrogative Pronouns (Practice)</h4>
+            
+            <h5 class="text-xl font-semibold text-gray-700 mb-3">Make questions using the interrogative pronoun given in brackets:</h5>
+            <ol class="list-decimal ml-6 space-y-2 text-gray-700 text-base exercise-list">
+                <li>Ram is going to Pokhara. (where) -> **Where is Ram going?**</li>
+                <li>She has broken a glass. (What) -> **What has she broken?**</li>
+                <li>Rekha has written this essay. (who) -> **Who has written this essay?**</li>
+                <li>Mira works in a factory. (where) -> **Where does Mira work?**</li>
+                <li>This glass is his. (whose) -> **Whose glass is this?**</li>
+                <li>The ship was in good condition. (what) -> **What was the condition of the ship?**</li>
+                <li>Kamesh always walks slowly. (who) -> **Who always walks slowly?**</li>
+                <li>We go to school to read. (why) -> **Why do we go to school?**</li>
+            </ol>
+        </div>
+        
+        <!-- 6. Relative Pronoun Section -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                6. Relative Pronouns (सम्बन्धवाचक सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                These pronouns (**Who, Whom, Whose, Which, That**) are used to **connect** a clause (a relative/adjective clause) to a noun or pronoun (the antecedent) earlier in the sentence.
+                <span class="nepali-text block mt-2 text-sm">
+                    (यी सर्वनामहरू वाक्यमा पहिले आएको संज्ञा (Noun) वा सर्वनाम (Pronoun) सँग पछिको वाक्यको भागलाई **जोड्न** प्रयोग हुन्छन् ।)
+                </span>
+            </p>
+            <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                <li>Neha, **whom** I helped a lot, also helped me.</li>
+                <li>Pooja, **whose** pencil was lost yesterday, is very cooperative.</li>
+                <li>Nepal, **which** is a republic state, is a landlocked country.</li>
+            </ul>
+        </div>
+
+        <!-- Exercises Section 4: Relative Pronoun -->
+        <div class="mt-8 bg-green-100 p-6 sm:p-8 rounded-xl shadow-lg border-l-8 border-green-500 card-transition">
+            <h4 class="text-2xl font-bold text-green-800 mb-4">Exercise 4: Relative Pronouns</h4>
+            
+            <h5 class="text-xl font-semibold text-gray-700 mb-3">Put the suitable relative pronoun from the brackets:</h5>
+            <ol class="list-decimal ml-6 space-y-2 text-gray-700 text-base exercise-list">
+                <li>The boy **who** won a prize was very happy. (who, whom, whose)</li>
+                <li>We stayed in a hotel **which** was very expensive. (which, what, where)</li>
+                <li>You need something **that** I will give you. (which, who, whom) [Note: 'That' or 'Which' is suitable here]</li>
+                <li>The boy **whom** they punished came late. (who, whom, whose)</li>
+                <li>Nepal, **which** is a republic state, is a landlocked country. (which, where, what)</li>
+            </ol>
+        </div>
+        
+        <!-- 7. Reciprocal Pronoun Section -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                7. Reciprocal Pronouns (आपसी सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                These pronouns (**each other / one another**) express a **mutual action or relationship** between two or more subjects.
+                <span class="nepali-text block mt-2 text-sm">
+                    (यी सर्वनामहरूले दुई वा सो भन्दा बढी कर्ताहरू बीचको **आपसी वा पारस्परिक सम्बन्ध** देखाउँछन् ।)
+                </span>
+            </p>
+            <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                <li>**Each other** is typically used for **two** people/things. (e.g., Poonam and Mona help **each other**.)</li>
+                <li>**One another** is typically used for **more than two** people/things. (e.g., The students help **one another**.)</li>
+            </ul>
+        </div>
+
+        <!-- Exercises Section 5: Mixed Pronouns -->
+        <div class="mt-8 bg-green-100 p-6 sm:p-8 rounded-xl shadow-lg border-l-8 border-green-500 card-transition">
+            <h4 class="text-2xl font-bold text-green-800 mb-4">Exercise 5: Mixed Pronouns</h4>
+            
+            <h5 class="text-xl font-semibold text-gray-700 mb-3">Fill each blank with a suitable pronoun:</h5>
+            <ol class="list-decimal ml-6 space-y-2 text-gray-700 text-base exercise-list">
+                <li>Rohan and Sohan respect **each other**. (each other, one another)</li>
+                <li>My friend Saloni forgot **her** book. (his, her)</li>
+                <li>Where are **my** keys? (me, my)</li>
+                <li>Anjali and I were late for **our** class. (their, our)</li>
+                <li>Rita did it by **herself**. (herself, himself)</li>
+            </ol>
+        </div>
+        
+        <!-- 8. Indefinite Pronoun Section (Added for completeness) -->
+        <div class="mt-10 p-6 bg-white rounded-xl shadow-lg card-transition">
+            <h3 class="text-2xl font-extrabold text-indigo-700 mb-3 underline decoration-yellow-400 decoration-4">
+                8. Indefinite Pronouns (अनिश्चित सर्वनाम)
+            </h3>
+            <p class="text-base text-gray-800 leading-relaxed mb-4">
+                These pronouns (**someone, anybody, everything, nobody, all, few, many, several**) refer to non-specific people, objects, or amounts.
+                <span class="nepali-text block mt-2 text-sm">
+                    (यी सर्वनामहरूले कुनै निश्चित व्यक्ति वा वस्तुलाई नजनाई अनिश्चित रूपमा जनाउँछन् ।)
+                </span>
+            </p>
+            <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                <li>**Somebody** is knocking at the door.</li>
+                <li>I ate **everything** on my plate.</li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-emerald-700 text-white text-center p-4 text-sm footer-fixed">
+        <p class="m-0">English Grammar Guide</p>
+    </footer>
+</body>
+
+</html>

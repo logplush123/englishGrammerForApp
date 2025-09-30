@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interjections: Expressing Emotion</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base Configuration & Custom Fonts for Nepali Readability */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdfa; /* Light Teal background */
+            color: #1f2937; /* Dark Gray text */
+        }
+
+        /* Subtle Fade-in Animation for Content Cards */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom style for the Nepali definition block */
+        .nepali-text {
+            font-family: 'Martel Sans', sans-serif; /* A bold, clear font for Devanagari script */
+            font-weight: 700;
+            color: #3b82f6; /* Blue for contrast */
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 5px solid #10b981; /* Teal border */
+            background-color: #eff6ff; /* Very light blue background */
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Delayed animation for cards */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header: Modern Gradient -->
+    <header class="bg-gradient-to-r from-teal-500 to-cyan-600 shadow-xl p-6 text-white sticky top-0 z-10 rounded-b-xl">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            ENGLISH GRAMMAR: Interjections 🗣️
+        </h1>
+        <p class="mt-1 text-teal-100 text-sm sm:text-base">Words that convey strong, sudden feeling.</p>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mb-20">
+
+        <h2 class="text-2xl sm:text-3xl font-bold text-center text-cyan-700 mt-6 mb-8 border-b-4 border-teal-500 pb-2">
+            What is an Interjection?
+        </h2>
+
+        <!-- Definition Block -->
+        <div class="bg-white p-6 rounded-xl shadow-lg fade-in">
+            <p class="text-lg text-justify leading-relaxed">
+                <span class="font-extrabold text-teal-600">Interjections</span> are words or phrases used to express sudden feelings or intense emotions such as **joy, grief, surprise, approval, or confusion**. They are grammatical elements added to a sentence to convey emotion and are usually followed by an **exclamation mark (!)**.
+            </p>
+            
+            <div class="nepali-text">
+                <p>
+                    <strong>परिभाषा (Definition):</strong> कुनै आकस्मिक घटना वा भावनाको कारणले मनमा आउने खुशी, दुःख, आश्चर्य, प्रशंसा वा अन्य मानसिक भावहरूको अभिव्यक्तिका लागि प्रयोग गरिने शब्द वा वाक्यांशलाई विस्मयादिबोधक (Interjection) भनिन्छ ।
+                </p>
+                <p class="mt-2">
+                    <strong>चिन्ह (Mark):</strong> यसको अन्त्यमा सधैँ विस्मयादिबोधक चिन्ह (!) राखिएको हुन्छ ।
+                </p>
+            </div>
+        </div>
+
+        <!-- Expressions Grid -->
+        <section class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Card 1: Joy/Happiness -->
+            <div class="p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] fade-in delay-100">
+                <h3 class="text-xl font-semibold text-teal-600 mb-3 border-b pb-2">🎉 Expression of Joy</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg pl-2">
+                    <li class="font-medium text-blue-700">Hurray!</li>
+                    <li>Great!</li>
+                    <li>Wow!</li>
+                    <li>Thanks a lot!</li>
+                    <li>Fantastic!</li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Surprise/Astonishment -->
+            <div class="p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] fade-in delay-200">
+                <h3 class="text-xl font-semibold text-cyan-600 mb-3 border-b pb-2">😲 Expression of Surprise</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg pl-2">
+                    <li class="font-medium text-blue-700">What!</li>
+                    <li>Oh my God!</li>
+                    <li>My Goodness!</li>
+                    <li>Is that right?</li>
+                    <li>Amazing!</li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Consent/Approval/Praise -->
+            <div class="p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] fade-in delay-300">
+                <h3 class="text-xl font-semibold text-green-600 mb-3 border-b pb-2">👍 Expression of Approval</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg pl-2">
+                    <li class="font-medium text-blue-700">Bravo!</li>
+                    <li>Well done!</li>
+                    <li>Certainly!</li>
+                    <li>True!</li>
+                    <li>Excellent!</li>
+                </ul>
+            </div>
+
+            <!-- Card 4: Disappointment/Aversion -->
+            <div class="p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] fade-in delay-400">
+                <h3 class="text-xl font-semibold text-red-600 mb-3 border-b pb-2">😔 Expression of Disappointment</h3>
+                <ul class="list-disc list-inside space-y-2 text-lg pl-2">
+                    <li class="font-medium text-blue-700">Alas!</li>
+                    <li>Oh, no!</li>
+                    <li>Oops!</li>
+                    <li>What a shame!</li>
+                    <li>Rats!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- General Examples Section -->
+        <section class="mt-10 p-6 bg-white rounded-xl shadow-xl fade-in delay-500">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Common Interjection Examples</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-lg">
+                
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">God bless you!</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">Wow, that's wonderful!</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">Touch wood!</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">Of course!</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">What an idea!</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">How sad!</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">Really?</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">Nonsense!</span>
+                <span class="bg-indigo-100 text-indigo-800 p-2 rounded-lg text-center font-medium shadow-sm">How dare you!</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer: Responsive and Fixed Position Removed -->
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <p class="text-sm">English Grammar </p>
+    </footer>
+</body>
+</html>

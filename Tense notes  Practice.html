@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tense(Nepali/English)</title>
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg2:#0f172a;
+    --text:#e6e9f2;
+    --muted:#a8b3cf;
+    --card:#0e1628;
+    --accent:#7c3aed;
+    --accent2:#22d3ee;
+    --accent3:#f59e0b;
+    --good:#10b981;
+    --bad:#ef4444;
+    --ring:rgba(124,58,237,.5);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,.15), transparent),
+    radial-gradient(900px 500px at 90% 30%, rgba(34,211,238,.12), transparent),
+    radial-gradient(600px 700px at 30% 90%, rgba(245,158,11,.14), transparent),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+    color:var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Noto Sans Devanagari", sans-serif;
+  }
+  .container{max-width:1100px;margin:0 auto;padding:24px}
+  header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .title{font-size:clamp(24px,3vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .subtitle{color:var(--muted);font-size:14px}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .seg{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);padding:6px;border-radius:14px;display:inline-flex;gap:6px}
+  .seg button{border:0;background:transparent;color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer;transition:transform .1s, background .2s, box-shadow .2s}
+  .seg button.active{background:linear-gradient(135deg, rgba(124,58,237,.35), rgba(34,211,238,.25));box-shadow:0 0 0 2px var(--ring) inset}
+  .seg button:hover{transform:translateY(-1px)}
+  .search{position:relative;flex:1 1 260px}
+  .search input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.06);color:var(--text);outline:none}
+  .search input:focus{box-shadow:0 0 0 3px var(--ring);border-color:transparent}
+  .grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+  @media (min-width:760px){.grid{grid-template-columns:1fr 1fr}}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+        border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:16px;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:-1px;border-radius:20px;
+    background:radial-gradient(400px 80px at var(--mx, 50%) var(--my, 0%), rgba(124,58,237,.25), transparent 60%);
+    pointer-events:none;transition:150ms}
+  .badge{display:inline-block;font-size:11px;padding:4px 8px;border-radius:999px;background:rgba(34,211,238,.2);
+         border:1px solid rgba(34,211,238,.35);margin-left:8px}
+  h3{margin:0 0 8px;font-size:18px}
+  details{border:1px dashed rgba(255,255,255,.14);border-radius:14px;padding:10px 12px;background:rgba(0,0,0,.15)}
+  details>summary{cursor:pointer;font-weight:700}
+  .list{margin:8px 0 0 0;padding:0 0 0 16px}
+  .list li{margin-bottom:6px}
+  .rules{display:grid;grid-template-columns:1fr;gap:8px}
+  .rule{padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+  .content{white-space:pre-wrap;line-height:1.6;font-size:15px}
+  .footer{margin-top:22px;color:var(--muted);font-size:12px;text-align:center}
+  .hidden{display:none!important}
+  .pill{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(124,58,237,.25);border:1px solid rgba(124,58,237,.4);margin-right:8px}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .btn{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);color:var(--text);border-radius:10px;padding:8px 12px;font-size:13px;cursor:pointer}
+  .btn:hover{background:rgba(255,255,255,.12)}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .tab{padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);cursor:pointer;font-size:13px}
+  .tab.active{background:linear-gradient(135deg, rgba(124,58,237,.35), rgba(34,211,238,.25));box-shadow:0 0 0 2px var(--ring) inset}
+  /* Practice */
+  .practice{margin-top:22px}
+  .practice .panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px}
+  .qa{display:grid;gap:12px}
+  .stat{font-size:13px;color:var(--muted)}
+  .flash{animation:pop .25s ease}
+  @keyframes pop{from{transform:scale(.98)} to{transform:scale(1)}}
+  .mark{padding:6px 8px;border-radius:8px;font-weight:700;display:inline-block}
+  .correct{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.4)}
+  .wrong{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4)}
+  input[type="text"], select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:var(--text);outline:none}
+  input[type="text"]:focus, select:focus{box-shadow:0 0 0 3px var(--ring);border-color:transparent}
+  .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-size:12px;padding:2px 6px;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+
+.imgcong {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+  .image-viewer-img {
+    max-width: 100%;  /* width device/container अनुसार adjust */
+    height: auto;     /* height proportional राख्ने */
+    border: 4px solid #3498db;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+  .fade-in {
+    opacity: 1;
+    transform: scale(1);
+  }
+  button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  #prevButton, #nextButton, #backButton, #imageContainer {
+    display: none;
+  }
+
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <div class="title">Tense – <span style="color:var(--accent2)"> Notes </span>  + Practice</div>
+        <div class="subtitle">All 12 tenses arranged as: <span class="kbd">Simple</span>, <span class="kbd">Continuous</span>, <span class="kbd">Perfect</span>, <span class="kbd">Perfect Continuous</span>. </div>
+      </div>
+      <div class="toolbar">
+        <div class="seg" role="tablist" aria-label="Mode">
+          <button id="tab-notes" class="active">Notes</button>
+          <button id="tab-practice">Practice</button>
+
+	  <button id="showPicBtn" onclick="startViewing()">SeeChart</button>
+
+        </div>
+
+	<div class="imgcon">
+  
+  <div id="navButtons">
+    <button id="prevButton" onclick="showPrevious()">पिछ्लो</button>
+    <button id="nextButton" onclick="showNext()">अगाडि</button>
+    <button id="backButton" onclick="goBack()">फिर्ता</button>
+  </div>
+
+  <div id="imageContainer"></div>
+</div>
+
+
+        <div class="search">
+          <input id="search" placeholder="Search notes (e.g., Present Perfect, negative, WH, उदाहरण)..." />
+        </div>
+      </div>
+    </header>
+
+    <section id="notes" class="grid"></section>
+
+    <section id="practice" class="practice hidden">
+      <div class="panel">
+        <div class="tabs" id="practice-tabs"></div>
+        <div id="practice-body" class="qa"></div>
+        <div class="actions">
+          <button class="btn" id="btn-check">Check</button>
+          <button class="btn" id="btn-next">Next</button>
+          <div class="stat" id="stat">Score: 0 / 0</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">for offline use (single HTML file). Tip: press <span class="kbd">/</span> to focus search.</div>
+  </div>
+
+<script>
+// DATA (Corrected only), grouped by Tense -> Type
+const DATA = [
+  {
+    group: "Present",
+    items: [
+      {
+        type: "Simple Present",
+        badge: "Habit/Facts",
+        rules: [
+          "Affirmative: Sub. + V1 (+ s/es with 3rd person singular) + Obj.",
+          "Negative: Sub. + do/does + not + V1 + Obj.",
+          "Interrogative: <WH> + do/does + Sub. + V1 + Obj.?",
+          "Negative Interrogative: <WH> + do/does + Sub. + not + V1 + Obj.?",
+          "Special (No explicit subject): <WH-Sub> + V1 (+ s/es) + Obj.? / <WH-Sub> + do/does + not + V1 + Obj.?"
+        ],
+        examples: [
+          ["Ravi does not drag this chair.", "Nepali: रविले यो कुर्सी तान्दैन।"],
+          ["Does Ravi drag this chair?", "Nepali: के रविले यो कुर्सी तान्छ?"],
+          ["I dip my finger into the water.", "Nepali: म पानीमा आफ्नो औंला डुबाउँछु।"],
+          ["Who drags the chair?", "Nepali: कुर्सीलाई को तान्छ?"],
+          ["That boy does not try to win.", "Nepali: त्यो केटो जित्ने प्रयास गर्दैन।"]
+        ]
+      },
+      {
+        type: "Present Continuous",
+        badge: "Action Now",
+        rules: [
+          "Affirmative: Sub. + is/am/are + V1 + ing + Obj.",
+          "Negative: Sub. + is/am/are + not + V1 + ing + Obj.",
+          "Interrogative: <WH> + is/am/are + Sub. + V1 + ing + Obj.?",
+          "Negative Interrogative: <WH> + is/am/are + Sub. + not + V1 + ing + Obj.?",
+          "Special (No explicit subject): <WH-Sub> + is/am/are + V1 + ing + Obj.? / ... + not ... ?"
+        ],
+        examples: [
+          ["Pooja is grinding the spices.", "Nepali: पूजा मसाले पिँधिरहेकी छिन्।"],
+          ["Is Pooja grinding the spices?", "Nepali: के पूजा मसाले पिँधिरहेकी छिन्?"],
+          ["Someone is missing me.", "Nepali: कसैले मलाई सम्झिरहेको छ।"],
+          ["He is playing.", "Nepali: ऊ खेलिरहेको छ।"],
+          ["Why are you not studying for your examinations?", "Nepali: तपाईं आफ्नो परीक्षाका लागि किन पढिरहनुभएको छैन?"]
+        ]
+      },
+      {
+        type: "Present Perfect",
+        badge: "Just/Result",
+        rules: [
+          "Affirmative: Sub. + has/have + V3 + Obj.",
+          "Negative: Sub. + has/have + not + V3 + Obj.",
+          "Interrogative: <WH> + has/have + Sub. + V3 + Obj.?",
+          "Negative Interrogative: <WH> + has/have + Sub. + not + V3 + Obj.?",
+          "Special (No explicit subject): <WH-Sub> + has/have + V3 + Obj.? / ... + not ... ?"
+        ],
+        examples: [
+          ["He has not cheated on me.", "Nepali: उसले मलाई धोका दिएको छैन।"],
+          ["Has he cheated on me?", "Nepali: के उसले मलाई धोका दिएको छ?"],
+          ["Ram has gone to school.", "Nepali: राम विद्यालय गइसकेको छ।"],
+          ["You have not completed your homework.", "Nepali: तपाईंले आफ्नो गृहकार्य पूरा गर्नुभएको छैन।"],
+          ["Have they called us back?", "Nepali: के उनीहरूले हामीलाई फिर्ता बोलाएका छन्?"]
+        ]
+      },
+      {
+        type: "Present Perfect Continuous",
+        badge: "Since/For",
+        rules: [
+          "Affirmative: Sub. + has/have + been + V1 + ing + Obj. + since/for + TIME.",
+          "Negative: Sub. + has/have + not + been + V1 + ing + Obj. + since/for + TIME.",
+          "Interrogative: <WH> + has/have + Sub. + been + V1 + ing + Obj. + since/for + TIME?",
+          "Negative Interrogative: <WH> + has/have + Sub. + not + been + V1 + ing + Obj. + since/for + TIME?",
+          "Special (No explicit subject): <WH-Sub> + has/have + been + V1 + ing + Obj. + since/for + TIME?"
+        ],
+        examples: [
+          ["I have been playing since morning.", "Nepali: म बिहानदेखि खेलिरहेको छु।"],
+          ["She has been reading this book for a week.", "Nepali: उनी एक हप्तादेखि यो किताब पढिरहेकी छिन्।"],
+          ["Have they been working since 2017?", "Nepali: के उनीहरू सन् २०१७ देखि प्रोजेक्टमा काम गरिरहेका थिए?"],
+          ["He has not been practicing for a month.", "Nepali: ऊ एक महिनादेखि अभ्यास गरिरहेको छैन।"],
+          ["Who has been writing for 2 hours?", "Nepali: दुई घण्टादेखि को लेखिरहेको छ?"]
+        ]
+      }
+    ]
+  },
+  {
+    group: "Past",
+    items: [
+      {
+        type: "Simple Past",
+        badge: "Finished",
+        rules: [
+          "Affirmative: Sub. + V2 + Obj.",
+          "Negative: Sub. + did + not + V1 + Obj.",
+          "Interrogative: <WH> + did + Sub. + V1 + Obj.?",
+          "Negative Interrogative: <WH> + did + Sub. + not + V1 + Obj.?",
+          "Special (No explicit subject): <WH-Sub> + V2 + Obj.? / <WH-Sub> + did + not + V1 + Obj.?"
+        ],
+        examples: [
+          ["His daughter swallowed a coin.", "Nepali: उसकी छोरीले एउटा सिक्का निलिन्।"],
+          ["Did his daughter swallow a coin?", "Nepali: के उसकी छोरीले सिक्का निलिन्?"],
+          ["He dropped the knife on the floor.", "Nepali: उसले चक्कु भुइँमा खसाले।"],
+          ["I liked Ravi.", "Nepali: म रविलाई मन पराउँथेँ।"],
+          ["We used to meet every Sunday.", "Nepali: हामी हरेक आइतबार भेट्दथ्यौं।"]
+        ]
+      },
+      {
+        type: "Past Continuous",
+        badge: "Action then",
+        rules: [
+          "Affirmative: Sub. + was/were + V1 + ing + Obj.",
+          "Negative: Sub. + was/were + not + V1 + ing + Obj.",
+          "Interrogative: <WH> + was/were + Sub. + V1 + ing + Obj.?",
+          "Negative Interrogative: <WH> + was/were + Sub. + not + V1 + ing + Obj.?",
+          "Special (No explicit subject): <WH-Sub> + was/were + V1 + ing + Obj.?"
+        ],
+        examples: [
+          ["She was peeling an orange.", "Nepali: वो एउटा सुन्तला छिलिरहेकी थिइन्।"],
+          ["We were leaving the office.", "Nepali: हामी अफिसबाट निस्किरहेका थियौं।"],
+          ["Was she singing a song?", "Nepali: के उनी गीत गाइरहेकी थिइन्?"],
+          ["They were not going out.", "Nepali: उनीहरू बाहिर गइरहेका थिएनन्।"],
+          ["Why were you blaming him?", "Nepali: तिमी उसलाई किन दोष दिइरहेका थियौं?"]
+        ]
+      },
+      {
+        type: "Past Perfect",
+        badge: "Before past",
+        rules: [
+          "Affirmative: Sub. + had + V3 + Obj.",
+          "Negative: Sub. + had + not + V3 + Obj.",
+          "Interrogative: <WH> + had + Sub. + V3 + Obj.?",
+          "Negative Interrogative: <WH> + had + Sub. + not + V3 + Obj.?",
+          "Special (No explicit subject): <WH-Sub> + had + V3 + Obj.?"
+        ],
+        examples: [
+          ["The patient had passed away before the doctor arrived.", "Nepali: डाक्टर आउनुभन्दा पहिले नै बिरामीको निधन भएको थियो।"],
+          ["She had completed the assignments but forgot to take them to school.", "Nepali: उनले असाइनमेन्ट पूरा गरेकी थिइन्, तर विद्यालय लैजान भुलेकी थिइन्।"],
+          ["Had you prepared for your examination?", "Nepali: के तपाईंले आफ्नो परीक्षाको तयारी गर्नुभएको थियो?"],
+          ["They had not gone to school.", "Nepali: उनीहरू विद्यालय गएका थिएनन्।"],
+          ["Why had he left before I reached?", "Nepali: म पुग्नुभन्दा पहिले नै ऊ किन गएको थियो?"]
+        ]
+      },
+      {
+        type: "Past Perfect Continuous",
+        badge: "Since/For then",
+        rules: [
+          "Affirmative: Sub. + had + been + V1 + ing + Obj. + since/for + TIME.",
+          "Negative: Sub. + had + not + been + V1 + ing + Obj. + since/for + TIME.",
+          "Interrogative: <WH> + had + Sub. + been + V1 + ing + Obj. + since/for + TIME?",
+          "Negative Interrogative: <WH> + had + Sub. + not + been + V1 + ing + Obj. + since/for + TIME?",
+          "Special (No explicit subject): <WH-Sub> + had + been + V1 + ing + Obj. + since/for + TIME?"
+        ],
+        examples: [
+          ["We had been meeting for many years.", "Nepali: हामी धेरै वर्षदेखि भेटिरहेका थियौं।"],
+          ["He had not been playing football since 2 o'clock.", "Nepali: ऊ २ बजेदेखि फुटबल खेलिरहेको थिएन।"],
+          ["Since when had you been living there?", "Nepali: तपाईं त्यहाँ कहिलेदेखि बसिरहनुभएको थियो?"],
+          ["They had been watching the movie for two hours.", "Nepali: उनीहरू दुई घण्टादेखि फिल्म हेरिरहेका थिए।"],
+          ["Why had he not been practicing since Monday?", "Nepali: ऊ सोमबारदेखि परीक्षाका लागि अभ्यास किन गरिरहेको थिएन?"]
+        ]
+      }
+    ]
+  },
+  {
+    group: "Future",
+    items: [
+      {
+        type: "Simple Future",
+        badge: "Will/Shall",
+        rules: [
+          "Affirmative: Sub. + will + V1 + Obj.",
+          "Negative: Sub. + will + not + V1 + Obj.",
+          "Interrogative: <WH> + will + Sub. + V1 + Obj.?",
+          "Negative Interrogative: <WH> + will + Sub. + not + V1 + Obj.?",
+          "Special (No explicit subject): <WH-Sub> + will + V1 + Obj.? / <WH-Sub> + will + not + V1 + Obj.?"
+        ],
+        examples: [
+          ["He will forgive you.", "Nepali: ऊ तिमीलाई माफ गरिदिनेछ।"],
+          ["I will dig a pit here.", "Nepali: म यहाँ एउटा खाल्डो खन्नेछु।"],
+          ["He will arrive tomorrow.", "Nepali: ऊ भोलि पुग्नेछ।"],
+          ["She will not go to college.", "Nepali: उनी कलेज जाने छैनन्।"],
+          ["When will you start practicing for the test?", "Nepali: तपाईंले टेस्टको लागि अभ्यास कहिले सुरु गर्नुहुनेछ?"]
+        ]
+      },
+      {
+        type: "Future Continuous",
+        badge: "Action then",
+        rules: [
+          "Affirmative: Sub. + will be + V1 + ing + Obj.",
+          "Negative: Sub. + will not be + V1 + ing + Obj.",
+          "Interrogative: <WH> + will + Sub. + be + V1 + ing + Obj.?",
+          "Negative Interrogative: <WH> + will + Sub. + not + be + V1 + ing + Obj.?"
+        ],
+        examples: [
+          ["I will be reading.", "Nepali: म पढ्दै हुनेछु।"],
+          ["Will he be playing cricket tomorrow?", "Nepali: के ऊ भोलि क्रिकेट खेल्दै हुनेछ?"],
+          ["She will not be traveling next week.", "Nepali: उनी अर्को हप्तामा यात्रा गर्दै छैनन्।"],
+          ["They will be preparing for exams.", "Nepali: उनीहरू परीक्षा तयारी गर्दै हुनेछन्।"]
+        ]
+      },
+      {
+        type: "Future Perfect",
+        badge: "Done by time",
+        rules: [
+          "Affirmative: Sub. + will have + V3 + Obj.",
+          "Negative: Sub. + will not have + V3 + Obj.",
+          "Interrogative: <WH> + will + Sub. + have + V3 + Obj.?",
+          "Negative Interrogative: <WH> + will + Sub. + not + have + V3 + Obj.?"
+        ],
+        examples: [
+          ["I will have finished the work by 6.", "Nepali: म छ बजेसम्म काम सकेको हुनेछु।"],
+          ["She will not have submitted the form by Monday.", "Nepali: उनले सोमबारसम्म फारम बुझाइसकेकी हुने छैनन्।"],
+          ["Will they have reached by then?", "Nepali: के उनीहरू त्यतिबेलासम्म पुगिसकेका हुनेछन्?"]
+        ]
+      },
+      {
+        type: "Future Perfect Continuous",
+        badge: "Since/For later",
+        rules: [
+          "Affirmative: Sub. + will have been + V1 + ing + Obj. + since/for + TIME.",
+          "Negative: Sub. + will not have been + V1 + ing + Obj. + since/for + TIME.",
+          "Interrogative: <WH> + will + Sub. + have been + V1 + ing + Obj. + since/for + TIME?",
+          "Negative Interrogative: <WH> + will + Sub. + not + have been + V1 + ing + Obj. + since/for + TIME?"
+        ],
+        examples: [
+          ["I will have been studying for two hours by 8.", "Nepali: आठ बजेसम्म म दुई घण्टादेखि पढिरहेको हुनेछु।"],
+          ["She will not have been working there since 2020.", "Nepali: २०२० देखि उनी त्यहाँ काम गरिरहेकी हुने छैनन्।"],
+          ["Will he have been waiting for us since morning?", "Nepali: के ऊ बिहानदेखि हाम्रो प्रतीक्षा गरिरहेको हुनेछ?"]
+        ]
+      }
+    ]
+  }
+];
+
+// RENDER NOTES
+const $notes = document.getElementById('notes');
+const $practice = document.getElementById('practice');
+const $tabNotes = document.getElementById('tab-notes');
+const $tabPractice = document.getElementById('tab-practice');
+const $search = document.getElementById('search');
+
+function cardMouse(e){
+  const r = e.currentTarget.getBoundingClientRect();
+  e.currentTarget.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+  e.currentTarget.style.setProperty('--my', (e.clientY - r.top) + 'px');
+}
+
+function renderNotes(filter=""){
+  $notes.innerHTML = "";
+  DATA.forEach(group=>{
+    group.items.forEach(item=>{
+      const hay = (group.group + " " + item.type + " " + item.rules.join(" ") + " " + item.examples.flat().join(" ")).toLowerCase();
+      if(filter && !hay.includes(filter.toLowerCase())) return;
+      const el = document.createElement('article');
+      el.className = 'card flash';
+      el.addEventListener('mousemove', cardMouse);
+      el.innerHTML = `
+        <h3>${group.group}: ${item.type} <span class="badge">${item.badge}</span></h3>
+        <div class="rules">
+          ${item.rules.map(r=>`<div class="rule">• ${r}</div>`).join("")}
+        </div>
+        <details style="margin-top:10px" open>
+          <summary>Examples (EN ↔ NP)</summary>
+          <ul class="list">
+            ${item.examples.map(([en,np])=>`<li><span class="pill">EN</span>${en}<br/><span class="pill">NP</span>${np}</li>`).join("")}
+          </ul>
+        </details>
+      `;
+      $notes.appendChild(el);
+    });
+  });
+  if(!$notes.children.length){
+    const empty = document.createElement('div');
+    empty.className='content';
+    empty.textContent="No results. Try a different search term.";
+    $notes.appendChild(empty);
+  }
+}
+renderNotes();
+
+$search.addEventListener('input', e=>renderNotes(e.target.value));
+window.addEventListener('keydown', e=>{ if(e.key === '/' && document.activeElement !== $search){ e.preventDefault(); $search.focus(); } });
+
+// TAB SWITCH
+function setTab(which){
+  if(which === 'notes'){
+    $tabNotes.classList.add('active'); $tabPractice.classList.remove('active');
+    $notes.classList.remove('hidden'); $practice.classList.add('hidden');
+  }else{
+    $tabPractice.classList.add('active'); $tabNotes.classList.remove('active');
+    $practice.classList.remove('hidden'); $notes.classList.add('hidden');
+  }
+}
+$tabNotes.onclick = ()=>setTab('notes');
+$tabPractice.onclick = ()=>setTab('practice');
+
+// PRACTICE ENGINE
+const PRACTICE_BANK = []; // each item: {group,type, qType, prompt, answer, choices?}
+function addGap(item, from, to){
+  // replace 'from' with blank and store expected answer
+  const idx = item.toLowerCase().indexOf(from.toLowerCase());
+  if(idx === -1) return null;
+  const before = item.substring(0, idx);
+  const mid = item.substr(idx, from.length);
+  const after = item.substring(idx + from.length);
+  return { text: before + " ____ " + after, answer: mid };
+}
+DATA.forEach(g=>g.items.forEach(it=>{
+  // Multiple-choice from rules: identify correct structure
+  PRACTICE_BANK.push({
+    group:g.group, type:it.type, qType:"mc",
+    prompt:`Choose the correct structure for ${g.group} – ${it.type}.`,
+    choices:[it.rules[0], it.rules[1], it.rules[2]],
+    answer:it.rules[0]
+  });
+  // Fill in from examples (make blanks on a keyword)
+  it.examples.slice(0,3).forEach(([en,np])=>{
+    const gap = addGap(en, " not ", ""); // try make a 'not' gap first
+    const target = gap || addGap(en, " is ", "") || addGap(en, " are ", "") || addGap(en," has ","") || addGap(en," have ","") || addGap(en," will ","");
+    if(target){
+      PRACTICE_BANK.push({group:g.group,type:it.type,qType:"gap",prompt:`Fill the blank: ${target.text}`,answer:target.answer.trim()});
+    }else{
+      // typing full sentence
+      PRACTICE_BANK.push({group:g.group,type:it.type,qType:"type",prompt:`Type this in English: ${np}`,answer:en});
+    }
+  });
+}));
+
+let score=0, total=0, current=null, currentFilter="Present";
+const $tabs = document.getElementById('practice-tabs');
+const $body = document.getElementById('practice-body');
+const $stat = document.getElementById('stat');
+const $btnCheck = document.getElementById('btn-check');
+const $btnNext = document.getElementById('btn-next');
+
+function renderPracticeTabs(){
+  const groups = ["All","Present","Past","Future"];
+  $tabs.innerHTML = groups.map(g=>`<button class="tab ${g==='Present'?'active':''}" data-g="${g}">${g}</button>`).join("");
+  [...$tabs.querySelectorAll('.tab')].forEach(b=>b.onclick=()=>{
+    [...$tabs.children].forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    currentFilter = b.dataset.g;
+    nextQuestion();
+  });
+}
+renderPracticeTabs();
+
+function sample(arr){
+  return arr[Math.floor(Math.random()*arr.length)];
+}
+function buildQuestion(){
+  const pool = PRACTICE_BANK.filter(q=> currentFilter==="All" ? true : q.group===currentFilter);
+  const q = sample(pool);
+  let html = `<div class="stat">Group: <b>${q.group}</b> • Type: <b>${q.type}</b></div>`;
+  if(q.qType === "mc"){
+    const shuffled = [...q.choices].sort(()=>Math.random()-0.5);
+    html += `<div class="content">${q.prompt}</div>`;
+    html += `<div>` + shuffled.map((c,i)=>`
+      <label style="display:block;margin-top:8px">
+        <input type="radio" name="opt" value="${c.replace(/"/g,'&quot;')}"/> ${c}
+      </label>`).join("") + `</div>`;
+  }else if(q.qType==="gap" || q.qType==="type"){
+    html += `<div class="content">${q.prompt}</div>`;
+    html += `<input id="ans" type="text" placeholder="Type your answer..." autocomplete="off"/>`;
+  }
+  $body.innerHTML = html;
+  return q;
+}
+function nextQuestion(){
+  current = buildQuestion();
+}
+function check(){
+  if(!current) return;
+  total++;
+  let ok=false, user="";
+  if(current.qType==="mc"){
+    const sel = $body.querySelector('input[name="opt"]:checked');
+    user = sel? sel.value : "";
+    ok = user===current.answer;
+  }else{
+    user = ($body.querySelector('#ans')?.value || "").trim();
+    const norm = s=>s.toLowerCase().replace(/\s+/g,' ').replace(/[.?!]+$/,'');
+    ok = norm(user)===norm(current.answer);
+  }
+  if(ok) score++;
+  const mark = document.createElement('div');
+  mark.className='mark ' + (ok?'correct':'wrong');
+  mark.textContent = ok? 'Correct!' : ('Wrong! ✓ ' + current.answer);
+  $body.appendChild(mark);
+  $stat.textContent = `Score: ${score} / ${total}`;
+}
+$btnCheck.onclick = check;
+$btnNext.onclick = nextQuestion;
+
+setTab('practice'); // open practice by default so user sees it quickly
+nextQuestion();
+
+const images = ['1.jpeg','2.jpeg','3.jpeg','4.jpeg'];
+let currentIndex = -1;
+
+const showPicBtn = document.getElementById('showPicBtn');
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
+const backButton = document.getElementById('backButton');
+const imageContainer = document.getElementById('imageContainer');
+
+function updateButtons() {
+  prevButton.disabled = currentIndex <= 0;
+  nextButton.disabled = currentIndex >= images.length - 1;
+}
+
+function showImage() {
+  if(currentIndex >= 0 && currentIndex < images.length){
+    const img = document.createElement('img');
+    img.src = images[currentIndex];
+    img.classList.add('image-viewer-img');
+    imageContainer.innerHTML = '';
+    imageContainer.appendChild(img);
+    setTimeout(() => img.classList.add('fade-in'), 10);
+  }
+  updateButtons();
+}
+
+function showNext() {
+  if(currentIndex < images.length - 1){
+    currentIndex++;
+    showImage();
+  }
+}
+
+function showPrevious() {
+  if(currentIndex > 0){
+    currentIndex--;
+    showImage();
+  }
+}
+
+function startViewing() {
+  currentIndex = 0;
+  showImage();
+  showPicBtn.style.display = 'none';
+  prevButton.style.display = 'inline-block';
+  nextButton.style.display = 'inline-block';
+  backButton.style.display = 'inline-block';
+  imageContainer.style.display = 'block';
+}
+
+function goBack() {
+  currentIndex = -1;
+  imageContainer.innerHTML = '';
+  showPicBtn.style.display = 'inline-block';
+  prevButton.style.display = 'none';
+  nextButton.style.display = 'none';
+  backButton.style.display = 'none';
+  imageContainer.style.display = 'none';
+}
+</script>
+</body>
+</html>

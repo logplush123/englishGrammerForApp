@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Clauses</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base Configuration & Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        /* Using Martel Sans for Nepali text support and clear reading, as Kalimati is a local system font */
+        @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light off-white */
+            color: #1f2937; /* Dark text for contrast */
+        }
+
+        /* Subtle Card Animation */
+        .card-animate {
+            animation: popIn 0.5s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.98);
+        }
+        @keyframes popIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* High contrast Nepali Definition Block */
+        .nepali-block {
+            font-family: 'Martel Sans', serif; /* Simulates a clean Devanagari font */
+            font-weight: 700;
+            color: #d946ef; /* Bright Pink/Purple */
+            padding: 1rem;
+            margin-top: 1rem;
+            border-left: 5px solid #a855f7; /* Violet accent */
+            background-color: #f3e8ff; /* Very light purple background */
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Highlight Style for readability on examples */
+        .highlight {
+            color: #ef4444; /* Red highlight */
+            font-weight: 700;
+            background-color: #fef2f2; /* Light red background */
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        /* Mobile Adjustments for Lists */
+        .example-list li {
+            font-size: 1rem; /* Base font size */
+        }
+        @media (max-width: 640px) {
+            .example-list li {
+                font-size: 0.95rem; /* Slightly smaller on small screens */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header: Dynamic Gradient -->
+    <header class="bg-gradient-to-r from-blue-700 to-sky-500 shadow-2xl p-6 sm:p-8 text-white sticky top-0 z-10 rounded-b-xl">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide">
+            ENGLISH GRAMMAR: CLAUSES 
+        </h1>
+        <p class="mt-1 text-sky-100 text-sm sm:text-base">The building blocks of complex sentences.</p>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mb-20">
+
+        <!-- Introduction Section -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl mt-8 card-animate">
+            <h2 class="text-2xl sm:text-3xl font-bold text-blue-700 mb-4 border-b-2 border-sky-300 pb-2">
+                What is a Clause?
+            </h2>
+            <p class="text-lg leading-relaxed mb-4">
+                A **clause** is a fundamental unit of grammar. It is a group of words that **contains a subject and a verb**. A clause may form a simple sentence, or it may combine with other clauses to form complex sentences.
+            </p>
+            
+            <div class="nepali-block">
+                <strong>परिभाषा:</strong> Clause भनेको शब्दहरूको यस्तो समूह हो जसमा एक **कर्ता (Subject)** र एक **क्रिया (Verb)** अनिवार्य रूपमा हुन्छ। यो अंग्रेजी वाक्यको आधारभूत एकाई हो।
+            </div>
+
+            <p class="text-xl font-semibold text-gray-700 mt-6 mb-4">Initial Examples:</p>
+            <ol class="list-decimal list-inside space-y-3 bg-gray-50 p-4 rounded-lg example-list">
+                <li><span class="highlight">He is Sanjay.</span></li>
+                <li><span class="highlight">He was calling me today.</span></li>
+                <li><span class="highlight">He is Sanjay</span>, who is Nitin's brother and an intelligent person. (Contains two clauses)</li>
+                <li><span class="highlight">Reading is a good habit.</span></li>
+            </ol>
+        </div>
+
+        <!-- Types of Clauses -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.1s;">
+            <h3 class="text-2xl font-bold text-sky-700 mb-4 border-b-2 border-indigo-300 pb-2">
+                The Two Main Types
+            </h3>
+            <ol class="list-decimal list-inside text-xl font-bold text-pink-600 space-y-2 pl-4">
+                <li>Independent Clauses</li>
+                <li>Dependent Clauses</li>
+            </ol>
+        </div>
+
+        <!-- Independent Clause -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.2s;">
+            <h3 class="text-2xl font-bold text-blue-700 mb-3 underline">1. Independent Clause (Main Clause)</h3>
+            <p class="text-lg leading-relaxed font-semibold text-red-700 mb-3">
+                This group of words contains a subject and a verb and **makes complete sense on its own** as a sentence.
+            </p>
+
+            <div class="nepali-block">
+                <strong>स्वतन्त्र उपवाक्य:</strong> यो शब्दहरूको समूह हो जसको आफ्नै पूर्ण अर्थ हुन्छ र यो आफैमा एक स्वतन्त्र वाक्यको रूपमा खडा हुन सक्छ।
+            </div>
+            
+            <p class="text-xl font-semibold text-gray-700 mt-4 mb-3">Examples:</p>
+            <ul class="list-none space-y-3 example-list">
+                <li class="p-3 bg-green-50 rounded-md border-l-4 border-green-500">
+                    <span class="highlight">He is Sanjay.</span>
+                </li>
+                <li class="p-3 bg-green-50 rounded-md border-l-4 border-green-500">
+                    <span class="highlight">Sita is a tall girl.</span>
+                </li>
+                <li class="p-3 bg-green-50 rounded-md border-l-4 border-green-500">
+                    <span class="highlight">Sam went to the park.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Dependent Clause -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.3s;">
+            <h3 class="text-2xl font-bold text-blue-700 mb-3 underline">2. Dependent Clause (Subordinate Clause)</h3>
+            <p class="text-lg leading-relaxed font-semibold text-red-700 mb-3">
+                This group of words contains a subject and a verb, but it **does NOT make complete sense on its own**. It must be attached to an Independent Clause.
+            </p>
+            
+            <div class="nepali-block">
+                <strong>आश्रित उपवाक्य:</strong> यो शब्दहरूको समूह हो जसमा Subject र Verb हुन्छ, तर यसको पूर्ण अर्थ बुझ्नको लागि यसलाई Independent Clause मा निर्भर रहनुपर्छ।
+            </div>
+
+            <h4 class="text-xl font-bold text-sky-600 mt-6 mb-3">Types of Dependent Clauses:</h4>
+            <ol class="list-decimal list-inside space-y-3 text-lg pl-4 text-purple-700 font-semibold">
+                <li><span class="text-indigo-900">Noun Clause:</span> Functions as a noun. (e.g., *what*, *that*, *who*)</li>
+                <li><span class="text-indigo-900">Adjective Clause (Relative Clause):</span> Functions as an adjective, modifying a noun. (e.g., *who*, *which*, *that*, *where*)</li>
+                <li><span class="text-indigo-900">Adverb Clause:</span> Functions as an adverb, modifying a verb, adjective, or adverb. (e.g., *because*, *when*, *if*, *although*)</li>
+            </ol>
+        </div>
+
+        <!-- Noun Clause Examples -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.4s;">
+            <h2 class="text-2xl font-bold text-pink-600 mb-3">Noun Clause</h2>
+            <p class="text-lg font-semibold text-gray-700 mb-4">
+                A clause that takes the place of a noun. It can be the subject or object of the main verb.
+            </p>
+
+            <ul class="list-none space-y-3 example-list">
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    Can you guess <span class="highlight">what I have in my pocket?</span>
+                </li>
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    Everyone can easily understand <span class="highlight">that you don't know the answer.</span>
+                </li>
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    I don't know <span class="highlight">who you are</span> and <span class="highlight">how you perform your duties.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Adjective Clause Examples -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.5s;">
+            <h2 class="text-2xl font-bold text-pink-600 mb-3">Adjective Clause (Relative Clause)</h2>
+            <p class="text-lg font-semibold text-gray-700 mb-4">
+                A clause that modifies (describes) a noun or pronoun in the main clause.
+            </p>
+
+            <ul class="list-none space-y-3 example-list">
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    Those students, <span class="highlight">who focused on their studies sincerely</span>, passed the exam. (Describes 'students')
+                </li>
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    He is my brother, <span class="highlight">whom you had rejected in the interview last year</span>. (Describes 'brother')
+                </li>
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    He loves Bihar, <span class="highlight">where he was born and spent his entire childhood</span>. (Describes 'Bihar')
+                </li>
+            </ul>
+        </div>
+
+        <!-- Adverb Clause Examples -->
+        <div class="mt-10 p-6 sm:p-8 bg-white rounded-2xl shadow-xl card-animate" style="animation-delay: 0.6s;">
+            <h2 class="text-2xl font-bold text-pink-600 mb-3">Adverb Clause</h2>
+            <p class="text-lg font-semibold text-gray-700 mb-4">
+                A clause that modifies the verb in the main clause. It answers the questions: **How, Why, When, Where,** or **To what extent?**
+            </p>
+
+            <div class="nepali-block">
+                <strong>Adverb Clause:</strong> यसले मुख्य वाक्यको क्रिया (Verb) लाई परिमार्जन गर्दछ र प्रायः **किन, कहिले, कहाँ, कसरी** भन्ने जस्ता प्रश्नहरूको उत्तर दिन्छ।
+            </div>
+
+            <ul class="list-none space-y-3 mt-4 example-list">
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    <span class="font-medium text-blue-700">I will meet you</span> <span class="highlight">after the meeting finishes.</span> (Answers: *When?*)
+                </li>
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    <span class="highlight">Because it was raining</span>, <span class="font-medium text-blue-700">we stayed indoors.</span> (Answers: *Why?*)
+                </li>
+                <li class="p-3 bg-purple-50 rounded-md border-l-4 border-pink-500">
+                    <span class="font-medium text-blue-700">She left the party</span> <span class="highlight">as soon as she saw him.</span> (Answers: *When?*)
+                </li>
+            </ul>
+        </div>
+
+        <!-- Exercise Section -->
+        <div class="exercise mt-10 p-6 sm:p-8 bg-sky-100 rounded-2xl shadow-2xl border-2 border-sky-400 card-animate" style="animation-delay: 0.7s;">
+            <h2 class="text-3xl font-extrabold text-blue-800 mb-4">Exercise</h2>
+            <h3 class="text-xl font-bold text-sky-600 mb-4">Identify the Clause Type (Noun, Adjective, or Adverb):</h3>
+            <ol class="list-decimal list-inside space-y-3 text-lg text-gray-700 font-semibold pl-4">
+                <li>I can figure out <span class="font-normal">(why you are worried)</span>.</li>
+                <li>I can also play <span class="font-normal">(what you were playing)</span>.</li>
+                <li>I can also play in the ground, <span class="font-normal">(where you were playing)</span>.</li>
+                <li>You have a pen, <span class="font-normal">(which is my favorite)</span>.</li>
+                <li>You have no idea <span class="font-normal">(who I am)</span>.</li>
+                <li>I also visited today, <span class="font-normal">(where you had visited last month)</span>.</li>
+            </ol>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4 fixed bottom-0 w-full">
+        <p class="text-sm">  English Grammar </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes/No Question</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+
+        header {
+            background-color: #004d99;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        a {
+            color: #004d99;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #004d99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a.button:hover {
+            background-color: #03b60e;
+        }
+
+        h2 {
+            color: #03b60e;
+        }
+
+        dt {
+            color: rgb(89, 1, 1);
+        }
+
+        dd {
+            font-weight: bold;
+            color: #03b60e;
+        }
+
+        .quiz {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .answer-input {
+            border: none;
+            border-bottom: 2px solid #ccc;
+            padding: 8px;
+            margin-bottom: 10px;
+            width: calc(100% - 20px);
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        .correct-answer {
+            display: none;
+            color: green;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Media query for smaller devices */
+        @media only screen and (max-width: 600px) {
+            .content {
+                font-size: 12px;
+                /* Adjusted font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ENGLISH GRAMMER</h1>
+    </header>
+
+    <div class="content">
+        <h2><u>Yes/No Question</u></h2>
+        <p>Yes/No question त्यस्तो प्रश्न हो, जसमा प्रश्न गर्दा हो वा होइन भन्ने उत्तर आउँछ।</p>
+        <p>Is he a doctor ? (के उ चिकित्सक हो ?) <br>Yes, he is / No, he is not (isn't).</p>
+        <p>वाक्यमा to be र to have भए त्यसैलाई Subject भन्दा पहिले राखेर प्रश्न बनाइन्छ ।</p>
+        <p>To be : is, am, are, was, were To have: have, has, had</p>
+        <p>■ He is a teacher. ( उ शिक्षक हो ।) <br>✓ Is he a teacher ? ( के उ शिक्षक हो ?) </p>
+        <p>They have a laptop. <br>Have they a laptop. </p>
+        <h2>Rule No 1</h2>
+        <p><b>Form statement into yes no questions</b> <br> Structure <br>Auxilary verb + sub ........ main verb+? </p>
+        <p><b>Normally :- when there is auxilary verb in the sentences we put in the first to make it yes no
+                questions:</b> <br>Example:</p>
+        <dl>
+            <dt>Aasha is cleaning the room.</dt>
+            <dd>was aasha cleaning the room?</dd>
+        </dl>
+        <dl>
+            <dt>She can phone you.</dt>
+            <dd>Can she phone you?</dd>
+        </dl>
+        <dl>
+            <dt>I am reading a book.</dt>
+            <dd>Am i reading a book?</dd>
+        </dl>
+        <dl>
+            <dt>Rita has been awarded.</dt>
+            <dd>Has rita been awarded?</dd>
+        </dl>
+
+        <div class="quiz">
+            <h2>Exercise</h2>
+            <div class="question">
+                <p>We should preserve the jungle.</p>
+                <input type="text" class="answer-input" data-correct="Should we preserve the jungle?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Should we preserve the jungle?</span>
+            </div>
+
+            <div class="question">
+                <p>Ram was playing in the garden.</p>
+                <input type="text" class="answer-input" data-correct="Was Ram playing in the garden?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Was Ram playing in the garden?</span>
+            </div>
+            <div class="question">
+                <p>They didn't invite you.</p>
+                <input type="text" class="answer-input" data-correct="Didn't they invite you?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Didn't they invite you?</span>
+            </div>
+            <div class="question">
+                <p>Miss is writing a letter.</p>
+                <input type="text" class="answer-input" data-correct="Is miss writing a letter?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Is miss writing a letter?</span>
+            </div>
+        </div>
+        <h2>RULE 2</h2>
+        <p><b>When there is more then one auxilary varb first one is used to make questions.</b></p>
+        <dl> Example :-
+            <dt>She will have been doing it.</dt>
+            <dd>Will she have been doing it?</dd>
+        </dl>
+        <dl>
+            <dt>Hari has been dancing.</dt>
+            <dd>Has hari been dancing?</dd>
+        </dl>
+        <dl>
+            <dt>Seema had been cooking the meal.</dt>
+            <dd>Had seema been cooking the meal?</dd>
+        </dl>
+
+        <dl>
+            <dt>It will have been completed.</dt>
+            <dd>Will it have been completed?</dd>
+        </dl>
+        <p><b>Note : In yes/no question ' I ' and ' We ' can use 'shall' while making questions.</b></p>
+
+        <div class="quiz">
+            <h2>Exercise</h2>
+            <div class="question">
+                <p>We should preserve the jungle.</p>
+                <input type="text" class="answer-input" data-correct="Will they have been done that?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Will they have been done that?</span>
+            </div>
+
+            <div class="question">
+                <p>They will have been done that.</p>
+                <input type="text" class="answer-input" data-correct="Has he been making the pictures?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Has he been making the pictures?</span>
+            </div>
+            <div class="question">
+                <p>He has been making the pictures.</p>
+                <input type="text" class="answer-input" data-correct="Had she been wearing the clothes?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Had she been wearing the clothes?</span>
+            </div>
+            <div class="question">
+                <p>Shyam and Ram have been bathing.</p>
+                <input type="text" class="answer-input" data-correct="Had Ram and Shyam been bathing?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Had Ram and Shyam been bathing?</span>
+            </div>
+        </div>
+
+        <h2>rule no . 3</h2>
+        <p><b>When there is no auxilary verb in the statements we use 'do' while making questions.</b></p>
+        <p><b>Note 'Do' is used in verb1 , 'did' is used in verb2 'Does' is used in verb5,
+                After use 'do' in question we always use varb 1 while making the question.</b></p>
+        <dl>Example
+            <dt>You invite him.</dt>
+            <dd>Do you invite him?</dd>
+        </dl>
+        <dl>
+            <dt>Ramesh plays a ball.</dt>
+            <dd>Does ramesh play a ball?</dd>
+        </dl>
+        <dl>
+            <dt>They did it.</dt>
+            <dd>Did they did it?</dd>
+        </dl>
+        <dl>
+            <dt>They stopped doing it.</dt>
+            <dd>Did they stop diong it?</dd>
+        </dl>
+
+        <div class="quiz">
+            <h2>Exercise</h2>
+            <div class="question">
+                <p>We went to Dharan.</p>
+                <input type="text" class="answer-input" data-correct="Did we go to Dharan?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Did we go to Dharan?</span>
+            </div>
+
+            <div class="question">
+                <p>I read a book.</p>
+                <input type="text" class="answer-input" data-correct="Do i read a book?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Do i read a book?</span>
+            </div>
+            <div class="question">
+                <p>They make a novel.</p>
+                <input type="text" class="answer-input" data-correct="Do they make a novel book?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Do they make a novel book?</span>
+            </div>
+            <div class="question">
+                <p>She drinks a coffee.</p>
+                <input type="text" class="answer-input" data-correct="Does she drink a coffee?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Does she drink a coffee?</span>
+            </div>
+        </div>
+        <h2>Rule no. 4</h2>
+        <p><b>When 'have' is used as a main verb, does is used while making questins.
+            'Do' is used in 'have' , 'does' is used in 'has' , 'did' is used in </b></p>
+        <dl> Example
+            <dt>They have a car.</dt>
+            <dd>Do they have a car?</dd>
+        </dl>
+        <dl>
+            <dt>He had a problem.</dt>
+            <dd>Did he had a problem?</dd>
+        </dl>
+
+        <dl>
+            <dt>She has four pens.</dt>
+            <dd>Does she have four pens?</dd>
+        </dl>
+
+        <dl>
+            <dt>i had a notes.</dt>
+            <dd>Did i have a notes?</dd>
+        </dl>
+        <p><b>Note : In qustions 'have' is used after 'Do' , 'Does' , and 'Did'.
+        </b></p>
+
+        <div class="quiz">
+            <h2>Exercise</h2>
+            <div class="question">
+                <p>We have many flowers.</p>
+                <input type="text" class="answer-input" data-correct="Do we have many flowers?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Do we have many flowers?</span>
+            </div>
+
+            <div class="question">
+                <p>Reshma had bought a pen.</p>
+                <input type="text" class="answer-input" data-correct="Did Resham have bought a pen?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Did Resham have bought a pen?</span>
+            </div>
+
+            <div class="question">
+                <p> I have done my work.</p>
+                <input type="text" class="answer-input" data-correct="Do i have done my work?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Do i have done my work?</span>
+            </div>
+
+            <div class="question">
+                <p>Sita has a beautiful car.</p>
+                <input type="text" class="answer-input" data-correct="Does she have a beautiful car?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Does she have a beautiful car?</span>
+            </div>
+        </div>
+        <h2>rule no. 5</h2>
+        <p><b>'Some' is changed into 'Any' in yes no questions.</b></p>
+        <dl>Example.
+            <dt>He has bought some books.</dt>
+            <dd>has he bought any books?</dd>
+        </dl>
+        <dl>
+            <dt>She told you something.</dt>
+            <dd>Did she tell you anything?</dd>
+        </dl>
+        <dl>
+            <dt>Some one is in the room.</dt>
+            <dd>is anyone in the room?</dd>
+        </dl>
+        <dl>
+            <dt>Neha went somewhere.</dt>
+            <dd>Did neha go anywhere?</dd>
+        </dl>
+        
+        <div class="quiz">
+            <h2>Exercise</h2>
+            <div class="question">
+                <p>I said you something.</p>
+                <input type="text" class="answer-input" data-correct="Did i say you anything?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Did i say you anything?</span>
+            </div>
+
+            <div class="question">
+                <p>She had some fruites.</p>
+                <input type="text" class="answer-input" data-correct="Had she have aany fruits?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Had she have aany fruits?</span>
+            </div>
+
+            <div class="question">
+                <p>They bring some foods.</p>
+                <input type="text" class="answer-input" data-correct=" Do they bring any foods anywhere?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer:  Do they bring any foods anywhere?</span>
+            </div>
+
+            <div class="question">
+                <p>He had gone somewhere</p>
+                <input type="text" class="answer-input" data-correct="Had they gone.?"
+                    placeholder="Your answer...">
+                <button class="submit-btn">Submit Answer</button>
+                <span class="correct-answer">Correct answer: Had they gone.?</span>
+            </div>
+        </div>
+
+
+        
+    </div>
+    <footer>
+        <p style="text-align: center;">English Grammer</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.quiz').forEach(function (quiz) {
+            quiz.addEventListener('click', function (event) {
+                if (event.target.classList.contains('submit-btn')) {
+                    const question = event.target.parentNode;
+                    const input = question.querySelector('.answer-input');
+                    const userInput = input.value.trim().toLowerCase();
+                    const correctAnswer = input.getAttribute('data-correct').toLowerCase();
+                    const correctAnswerSpan = question.querySelector('.correct-answer');
+
+                    if (userInput === correctAnswer) {
+                        input.classList.remove('incorrect');
+                        input.classList.add('correct');
+                    } else {
+                        input.classList.remove('correct');
+                        input.classList.add('incorrect');
+                        correctAnswerSpan.style.display = 'block';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

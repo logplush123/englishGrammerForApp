@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Tag</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #004d99;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        table td {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        footer {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        a {
+            color: #004d99;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #004d99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a.button:hover {
+            background-color: #03b60e;
+        }
+
+        .exercise {
+            margin: 0%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .exercise input {
+            border: none;
+            border-bottom: 2px solid #004d99;
+            outline: none;
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-bottom 0.3s ease;
+            font-size: 16px;
+        }
+
+        .exercise input.correct {
+            border-bottom: 2px solid green;
+        }
+
+        .exercise input.incorrect {
+            border-bottom: 2px solid red;
+        }
+
+        .exercise input:focus {
+            border-bottom: 2px solid #03b60e;
+        }
+
+        .answer-button {
+            background-color: #004d99;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .answer-button:hover {
+            background-color: #03b60e;
+        }
+
+        /* Media query for smaller devices */
+        @media only screen and (max-width: 600px) {
+            .content {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ENGLISH GRAMMAR</h1>
+    </header>
+
+    <div class="content">
+        <h2><u>Question Tag</u></h2>
+        <p style="font-weight: bold;">If a short question is added in the sentences, then it is said to be a tag
+            question.</p>
+        <h3>Rule No. 1</h3>
+        <p><b style="color: #03b60e; font-size: large; ">In a sense, affirmative sentences are changed into negative,
+                and negative sentences are changed into affirmative.</b> <br><br> E.g.</p>
+        <ul style="font-size: 3vh;">
+            <li>Ram is a boy., <b>isn't he?</b></li>
+            <li>She will not finish her work.,<b> will she?</b></li>
+            <li>We can do it.,<b> can’t we?</b></li>
+            <li>He never worked hard,<b> did he?</b></li>
+            <li>She cooks the food,<b> doesn’t she?</b></li>
+            <li>We did not see a party.,<b> did we?</b></li>
+            <li>Rekha teaches her son.,<b> doesn’t she? </b></li>
+        </ul>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>We played football.? <br>
+                    <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                    <button class="answer-button" onclick="checkAnswer('isn\'t he?', 0)">Check Answer</button>
+                </li> <br>
+                <li> They are singing a song?<br>
+                    <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                    <button class="answer-button" onclick="checkAnswer('aren\'t they?', 1)">Check Answer</button>
+                </li> <br>
+                <li> Rajan isn't a student?<br>
+                    <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                    <button class="answer-button" onclick="checkAnswer('is he?', 2)">Check Answer</button>
+                </li><br>
+                <li> She can't do it.<br>
+                    <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                    <button class="answer-button" onclick="checkAnswer('can she?', 3)">Check Answer</button>
+                </li><br>
+            </ol>
+        </div>
+        <h3>Rule No. 2</h3>
+        <p><b style="color: #03b60e; font-size: large; ">Auxiliary verb is added along with not in negative tag.</b>
+            <br> <br> E.g.
+        </p>
+        <ul>
+            <li>Ram did his work,<b> didn’t he?</b></li>
+            <li>Dad drives a car,<b> doesn’t he?</b></li>
+            <li>My friends drink milk,<b> don’t they?</b></li>
+        </ul>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>
+                    They won't told haven?
+                    <form>
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('will they?', 4)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+                    Sister washes clothes?
+                    <form>
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('doesn\'t she?', 5)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+                    We will dance in a party?
+                    <form>
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('won\'t we?', 6)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+                    Cathy will call me?
+                    <form>
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('won\'t she?', 7)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+            </ol>
+        </div>
+        <h3>Rule No. 3</h3>
+        <p><b style="color: #03b60e; font-size: large; ">Always pronoun is used in the end of the tag.</b> <br> <br>
+            E.g</p>
+        <ul>
+            <li>Ram will play a ball,<b> will not he?</b></li>
+            <li>Seema has a book,<b> hasn’t she?</b></li>
+            <li>Roshan helps me, <b>doesn’t he? </b></li>
+        </ul>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>
+
+                    <form>We shall do the work?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('shall we?', 8)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+
+                    <form>Rama can do her work?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer(' can\'t she?', 9)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+
+                    <form>I am a player?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('am I?', 10)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+
+                    <form>They sing a song?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('don\'t they?', 11)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+            </ol>
+        </div>
+        <h2 style="text-align: center; text-decoration: underline; color: #004d99;">Some specific rules of question tag.
+        </h2>
+        <h3 style="color: #03b60e;">(A) “Do” is used in verb1. <br><br> E.g.</h3>
+        <ol type="a">
+            <li> We never drink.<b>Do we?</b></li>
+            <li> They eat the meal,<b>don’t they?</b></li>
+            <li> Aaisha cleans the home,<b>don’t she?</b></li>
+        </ol>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>
+                    <form>We make the picture?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('don\'t we?', 12)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+                    <form>They watch a movie?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('don\'t they?', 13)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+                    <form>Ram and Shyam walk in the garden?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('don\'t they?', 14)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+            </ol>
+        </div>
+        <h3 style="color: #03b60e;">(B) “Does “is used in verb5. <br><br> E.g.</h3>
+        <ol type="a">
+            <li>He does the homework,<b> doesn’t he?</b></li>
+            <li>Mother cooks the food,<b> doesn’t she?</b></li>
+            <li>Aaisha clean the room,<b> doesn’t she?</b></li>
+        </ol>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>
+
+                    <form>He cries loudly?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('doesn\'t he?', 15)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+
+                <li>
+
+                    <form>She brings the chocolate?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('doesn\'t she?', 16)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+
+                <li>
+
+                    <form>Sita makes the coffee?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('doesn\'t she?', 17)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+
+            </ol>
+        </div>
+        <h3 style="color: #03b60e;">(C) “Did” is used in verb 2. <br> <br> E.g. </h3>
+        <ol>
+            <li>we played a game.<b> Didn’t we?</b></li>
+            <li>They did not completed yet.<b> Did they?</b></li>
+            <li>Rekha did the work.<b> Didn’t she?</b></li>
+        </ol>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>
+
+                    <form>He completed the task?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('didn\'t he?', 18)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+
+                    <form>George married Ann?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('didn\'t he?', 19)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+
+                    <form>Teacher taught the lesson?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('didn\'t he?', 20)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+            </ol>
+        </div>
+        <h3>Rule No 4</h3>
+        <h3 style="color: #03b60e;">In tag question imperative sentences are changed in, will you?
+            <br><br> E.g.
+        </h3>
+        <ol type="a">
+            <li>Come here,<b> will you?</b></li>
+            <li>Have your meal,<b> will you?</b></li>
+            <li>Don’t hate him,<b> Will you?</b></li>
+        </ol>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>
+
+                    <form>Let us play?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('will you?', 21)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+
+                    <form>Let her go out?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('will you?', 22)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+
+                    <form>Open the door?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('will you?', 23)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+            </ol>
+        </div>
+        <h3>Rule No 5</h3>
+        <h3 style="color: #03b60e;">In tag question Let’s changed into “shall we” <br><br>E.g.</h3>
+        <ol>
+            <li>Let’s go out,<b> shall we?</b></li>
+            <li>Let’s dance,<b> shall we?</b></li>
+            <li>Let’s write a note,<b> shall we?</b></li>
+        </ol>
+        <div class="exercise">
+            <h2>Exercise</h2>
+            <ol>
+                <li>
+
+                    <form>Let's play a music?
+                        <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                        <button type="button" class="answer-button" onclick="checkAnswer('shall we?', 24)">Check
+                            Answer</button>
+                    </form>
+                </li> <br>
+                <li>
+                <form>Let's make a picture?
+                    <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                    <button type="button" class="answer-button" onclick="checkAnswer('shall we?', 25)">Check
+                        Answer</button>
+                </form>
+                </li> <br>
+                <li>
+                <form>Let's dance together?
+                    <input type="text" class="quiz" placeholder="Write Answer Here"> <br> <br>
+                    <button type="button" class="answer-button" onclick="checkAnswer('shall we?', 26)">Check
+                        Answer</button>
+                </form>
+                </li> <br>
+
+            </ol>
+        </div>
+
+
+
+        
+    </div>
+    <footer>
+        <p style="text-align: center;"> English Grammar</p>
+    </footer>
+
+    <script>
+        function checkAnswer(correctAnswer, questionIndex) {
+            var userInput = document.querySelectorAll('.quiz')[questionIndex];
+            if (userInput.value.toLowerCase() === correctAnswer.toLowerCase()) {
+                userInput.classList.remove('incorrect');
+                userInput.classList.add('correct');
+                userInput.style.color = 'green';
+                alert("Correct! The answer is: " + correctAnswer);
+            } else {
+                userInput.classList.remove('correct');
+                userInput.classList.add('incorrect');
+                userInput.style.color = 'red';
+                alert("Incorrect! The correct answer is: " + correctAnswer);
+            }
+        }
+    </script>
+</body>
+
+</html>

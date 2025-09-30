@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering the Noun</title>
+    <style>
+        /* --- Base & Reset --- */
+        :root {
+            --primary-color: #007bff; /* Bright Blue */
+            --secondary-color: #28a745; /* Vibrant Green for accents */
+            --background-light: #f8f9fa;
+            --background-dark: #343a40; /* Dark for footer */
+            --text-color-dark: #333;
+            --text-color-light: #fff;
+            --card-background: #ffffff;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+        }
+
+        /* --- Header & Footer --- */
+        header {
+            background: linear-gradient(90deg, #0056b3, var(--primary-color));
+            color: var(--text-color-light);
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            background: linear-gradient(90deg, var(--primary-color), #0056b3);
+            color: var(--text-color-light);
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            position: relative; /* Not fixed to allow content scrolling */
+            margin-top: 40px;
+        }
+
+        /* --- Content Layout --- */
+        .content {
+            padding: 20px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            width: 100%;
+        }
+
+        /* Card Container (Grid for responsiveness) */
+        .noun-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Individual Card Style & Animation */
+        .noun-card {
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Animation */
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .noun-card:nth-child(1) { animation-delay: 0.1s; }
+        .noun-card:nth-child(2) { animation-delay: 0.2s; }
+        .noun-card:nth-child(3) { animation-delay: 0.3s; }
+        .noun-card:nth-child(4) { animation-delay: 0.4s; }
+        .noun-card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(20px); }
+        }
+
+        .noun-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .noun-card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* General Text & Lists */
+        p, ul, ol {
+            font-size: 1rem; /* Base size */
+            margin-bottom: 15px;
+            text-align: left; /* Prefer left-align for lists/examples */
+        }
+
+        .definition {
+            font-style: italic;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+            margin: 15px 0;
+        }
+
+        .example-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .example-list li {
+            background-color: #e9ecef;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .note {
+            background-color: #fff3cd; /* Light warning color */
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ffeeba;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        
+        /* Specific Styles for Collective Noun List (for better display) */
+        .collective-list-group {
+            columns: 1;
+            column-gap: 20px;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* --- Mobile Optimization (Crucial for Readability) --- */
+        @media only screen and (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            /* Maximize text visibility on small screens */
+            p, ul, ol, .noun-card h3 {
+                font-size: 1.1rem; /* Increased font size for mobile readability */
+            }
+
+            .noun-card {
+                padding: 15px;
+            }
+
+            .collective-list-group {
+                columns: 1; /* Ensure one column on small screens */
+            }
+
+            .noun-cards {
+                grid-template-columns: 1fr; /* Single column on tiny screens */
+            }
+        }
+
+        @media only screen and (min-width: 769px) {
+             .collective-list-group {
+                columns: 2; /* Two columns for desktop/tablet */
+             }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ENGLISH GRAMMAR 📘</h1>
+    </header>
+
+    <div class="content">
+        <h2>Mastering the Noun</h2>
+        
+        <p>A **noun** is a word used to identify any of a class of people, places, or things, or to name a particular one of these. Nouns are generally categorized into five primary groups, as explored below:</p>
+
+        <div class="noun-cards">
+            
+            <div class="noun-card">
+                <h3>1. Proper Noun 🌟</h3>
+                <p class="definition">A **Proper Noun** is the specific name of a particular person, place, or thing.</p>
+                
+                <p><strong>Key Rule:</strong> The first letter of a Proper Noun is always capitalized.</p>
+                <ul class="example-list">
+                    <li>**Sita** is eating. (Specific person)</li>
+                    <li>**Kalaiya** is a town. (Specific place)</li>
+                    <li>The **Bagmati** is a river. (Specific river)</li>
+                    <li>The **Ramayan** is an epic. (Specific book)</li>
+                </ul>
+            </div>
+            
+            <div class="noun-card">
+                <h3>2. Common Noun 👥</h3>
+                <p class="definition">A **Common Noun** is a name given in common to every person, place, or thing of the same class or kind; it represents the whole species.</p>
+                
+                <ul class="example-list">
+                    <li>It is a **dog**.</li>
+                    <li>The **elephant** is an **animal**.</li>
+                    <li>It is a **pencil**.</li>
+                    <li>I have a **computer**.</li>
+                </ul>
+                <p class="note"><strong>Note:</strong> A Common Noun often requires an article (a, an, the) before it when singular.</p>
+            </div>
+            
+            <div class="noun-card">
+                <h3>3. Collective Noun 🧑‍🤝‍🧑</h3>
+                <p class="definition">A **Collective Noun** names a group or collection of people, animals, or things as a single unit.</p>
+                
+                <ul class="example-list">
+                    <li>I saw a **gang** of robbers.</li>
+                    <li>I lost a **bunch** of keys.</li>
+                    <li>A **crowd** of people was there.</li>
+                    <li>A **herd** of deer is grazing.</li>
+                </ul>
+                
+                <h4>More Collective Nouns:</h4>
+                <ul class="collective-list-group">
+                    <li>a herd of cattle</li>
+                    <li>a pride of lions</li>
+                    <li>a swarm of butterflies</li>
+                    <li>a bouquet of flowers</li>
+                    <li>a school/shoal of fish</li>
+                    <li>an army of soldiers</li>
+                    <li>a panel of experts</li>
+                    <li>a colony of ants</li>
+                    <li>a galaxy of stars</li>
+                </ul>
+            </div>
+
+            <div class="noun-card">
+                <h3>4. Material Noun 🧱</h3>
+                <p class="definition">A **Material Noun** refers to the matter or substance (solid, liquid, or gas) from which things are made or that exists naturally.</p>
+                
+                <ul class="example-list">
+                    <li>She eats **meat**.</li>
+                    <li>I boil **water**.</li>
+                    <li>They cooked **curry**.</li>
+                    <li>I bought some **rice** and **salt**.</li>
+                    <li>The ring is made of **gold**.</li>
+                </ul>
+                
+                <p class="note"><strong>Note:</strong> We typically **cannot** use 'a' or 'an' before a Material Noun. 'The' may be used when the material is specialized (e.g., "The water in this well is pure.").</p>
+            </div>
+
+            <div class="noun-card">
+                <h3>5. Abstract Noun 💡</h3>
+                <p class="definition">An **Abstract Noun** names a quality, state, idea, or action that cannot be perceived by the five senses (i.e., you cannot see, hear, taste, touch, or smell it).</p>
+                
+                <p>These nouns represent concepts or feelings.</p>
+                <ul class="example-list">
+                    <li>He felt great **relief**.</li>
+                    <li>I was surprised at his **stupidity**.</li>
+                    <li>His **poverty** made him beg.</li>
+                    <li>Her **beauty** is praiseworthy.</li>
+                    <li>His **nervousness** is his enemy.</li>
+                </ul>
+                
+                <p class="note"><strong>Summary:</strong> Abstract Nouns cannot be seen or touched; the other four noun types generally can be observed.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        English Grammar Resources 
+    </footer>
+</body>
+</html>

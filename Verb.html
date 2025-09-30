@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Verb Conjugation Helper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .loading-ring {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div id="app" class="container mx-auto bg-white shadow-xl rounded-2xl p-6 md:p-10 mt-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-3 flex items-center">
+            <svg class="w-8 h-8 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            Verb Conjugation Helper
+        </h1>
+
+        <div class="space-y-4">
+            <!-- Input Area -->
+            <div>
+                <label for="verbInput" class="block text-sm font-medium text-gray-700 mb-1">Enter a Verb (e.g., "to run" or "hacer"):</label>
+                <input type="text" id="verbInput" placeholder="Type the infinitive verb..." 
+                       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out" />
+            </div>
+
+            <!-- Language Selector (Optional hint for the model) -->
+            <div>
+                <label for="languageSelect" class="block text-sm font-medium text-gray-700 mb-1">Target Language:</label>
+                <select id="languageSelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-150 ease-in-out">
+                    <option value="English">English</option>
+                    <option value="Spanish" selected>Spanish</option>
+                    <option value="French">French</option>
+                    <option value="German">German</option>
+                    <option value="Italian">Italian</option>
+                </select>
+            </div>
+
+            <!-- Action Button -->
+            <button id="searchButton" onclick="searchVerbForms()" 
+                    class="w-full flex justify-center items-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out shadow-md">
+                <span id="buttonText">Get Conjugations</span>
+                <div id="loadingIndicator" class="loading-ring hidden ml-3"></div>
+            </button>
+        </div>
+
+        <!-- Result Display Area -->
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Results:</h2>
+            <div id="resultOutput" class="min-h-[150px] p-4 bg-gray-50 border border-gray-200 rounded-lg whitespace-pre-wrap text-sm text-gray-700">
+                Enter a verb and click "Get Conjugations" to see the results.
+            </div>
+            
+            <!-- Error Message Box -->
+            <div id="errorBox" class="hidden mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg" role="alert">
+                <p class="font-bold">Error:</p>
+                <p id="errorMessage"></p>
+            </div>
+        </div>
+
+        <!-- Static Verb Table -->
+        <div class="mt-10 pt-6 border-t border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Common Irregular Verbs (English)</h2>
+            <div class="overflow-x-auto rounded-lg border">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-indigo-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Base Form (v1)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Past Simple (v2)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Past Participle (v3)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <!-- Note: Duplicate 'Eat' and 'Go' entries from the request were consolidated -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Prick (कुनै बस्तुले घोच्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Pricked</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Pricked</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Eat (खानु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ate</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Eaten</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Drink (पिउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Drank</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Drunk</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Feed (खुवाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Fed</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Fed</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Sleep (सुत्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Slept</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Slept</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">See (हेर्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Saw</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Seen</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Go (जानु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Went</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Gone</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Do (गर्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Did</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Done</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Come (आउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Came</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Come</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Bring (ल्याउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Brought</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Brought</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Break (तोड्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Broke</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Broken</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Build (बनाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Built</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Built</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Buy (किन्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Bought</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Bought</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Catch (पकड्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Caught</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Caught</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Choose (चयन गर्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Chose</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Chosen</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cost (मूल्य)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cost</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cost</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Cut (काट्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cut</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Cut</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Draw (खिच्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Drew</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Drawn</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Dream (सपना)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dreamt / Dreamed</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dreamt / Dreamed</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Feel (महसुस गर्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Felt</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Felt</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Find (खोज्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Found</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Found</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Forget (बिर्सनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Forgot</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Forgotten / Forgot</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Get (पाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Got</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Got / Gotten</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Give (दिनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Gave</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Given</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Grow (बढ्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Grew</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Grown</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hang (फाटक लगाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hung</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hung</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Have (छ)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Had</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Had</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hear (सुन्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Heard</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Heard</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hit (मार्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hit</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hit</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hold (पकड्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Held</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Held</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Hurt (चोट पुगाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hurt</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Hurt</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Keep (राख्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Kept</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Kept</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Kneel (घुट्ना टाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Knelt / Kneeled</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Knelt / Kneeled</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Know (थाहा पाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Knew</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Known</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Lay (बिछाउनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Laid</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Laid</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Lead (अगुवाई गर्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Led</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Led</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Learn (सिक्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Learned / Learnt</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Learned / Learnt</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Leave (छोड्नु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Left</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Left</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Lend (उधार दिनु)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Lent</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Lent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Gemini API Configuration & Utility Functions ---
+
+        // Fix for 401 Error: API Key must be set to an empty string to use the environment's provided token.
+        const apiKey = "AIzaSyCaGIbpZ-w5damce-FyWWqXWjq5ZKcnAak"; 
+        const modelName = "gemini-2.5-flash-preview-05-20";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+
+        const verbInput = document.getElementById('verbInput');
+        const languageSelect = document.getElementById('languageSelect');
+        const searchButton = document.getElementById('searchButton');
+        const buttonText = document.getElementById('buttonText');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const resultOutput = document.getElementById('resultOutput');
+        const errorBox = document.getElementById('errorBox');
+        const errorMessage = document.getElementById('errorMessage');
+
+        /**
+         * Simple utility to show a user-friendly error message.
+         * @param {string} message - The error message to display.
+         */
+        function displayError(message) {
+            errorMessage.textContent = message;
+            errorBox.classList.remove('hidden');
+            console.error(message);
+        }
+
+        /**
+         * Hides any existing error messages.
+         */
+        function hideError() {
+            errorBox.classList.add('hidden');
+            errorMessage.textContent = '';
+        }
+        
+        /**
+         * Handles API calls with exponential backoff for retries.
+         * This function helps resolve transient network issues or rate limiting.
+         * The original 401 error suggests an auth issue, but robust retry logic is maintained.
+         * @param {object} payload - The request payload.
+         * @param {number} maxRetries - Maximum number of retries.
+         * @returns {Promise<object>} The JSON response from the API.
+         */
+        async function callApiWithRetry(payload, maxRetries = 3) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    console.log(`Attempt ${i + 1} to call API...`);
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        return await response.json();
+                    }
+
+                    // Log status and potentially retry.
+                    console.error(`API call failed with status: ${response.status}`);
+                    
+                    // Specific handling for 401: This is not a transient error, do not retry.
+                    if (response.status === 401) {
+                         // Throw a specific error to halt execution and report to the user
+                         throw new Error(`Authentication Error (401): The API key is invalid or unauthorized. If you haven't set a key, ensure the model is supported in this environment.`);
+                    }
+
+                    // Throw for other errors to trigger the catch and retry logic
+                    throw new Error(`API call failed with status: ${response.status}`);
+
+                } catch (error) {
+                    console.error(`API Fetch/Retry Error: ${error}`);
+                    if (i === maxRetries - 1 || error.message.includes('401')) {
+                        throw error; // Re-throw the error on final attempt or specific auth error
+                    }
+                    // Exponential backoff
+                    const delay = Math.pow(2, i) * 1000;
+                    // Do not log the retry in the console, just wait.
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+        }
+
+        // --- Main Application Logic ---
+
+        /**
+         * Initiates the verb conjugation search using the Gemini API.
+         */
+        async function searchVerbForms() {
+            hideError();
+            const verb = verbInput.value.trim();
+            const language = languageSelect.value;
+            
+            if (!verb) {
+                displayError("Please enter a verb before searching.");
+                return;
+            }
+
+            // UI State: Loading
+            searchButton.disabled = true;
+            buttonText.textContent = "Searching...";
+            loadingIndicator.classList.remove('hidden');
+            resultOutput.textContent = 'Searching for conjugations...';
+
+            const systemPrompt = `You are a world-class language tutor. When given a verb, you must provide a comprehensive conjugation table for that verb in the specified language, including common tenses (e.g., Present, Preterite, Future, Subjunctive, Imperative). Format the output clearly using Markdown tables and headers. If the verb is irregular, highlight that in the response. The response must be self-contained and accurate.`;
+            const userQuery = `Provide the full conjugation for the verb "${verb}" in ${language}.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            try {
+                const result = await callApiWithRetry(payload);
+                const generatedText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (generatedText) {
+                    resultOutput.innerHTML = formatMarkdownToHtml(generatedText);
+                } else {
+                    displayError("The API returned no valid text result. Please try a different verb.");
+                    resultOutput.textContent = 'No results found.';
+                }
+
+            } catch (error) {
+                console.error("Final API Error:", error.message);
+                // Display the user-friendly message based on the error
+                if (error.message.includes('401')) {
+                    displayError("Authentication Failed: Your API key is invalid or missing. Please check the setup of the `apiKey` variable in the script.");
+                } else {
+                    displayError(`An unexpected error occurred: ${error.message}. Please try again.`);
+                }
+                resultOutput.textContent = 'Failed to load results.';
+
+            } finally {
+                // UI State: Reset
+                searchButton.disabled = false;
+                buttonText.textContent = "Get Conjugations";
+                loadingIndicator.classList.add('hidden');
+            }
+        }
+
+        /**
+         * Basic function to convert markdown text to HTML for display (e.g., for tables).
+         * This is simplified for this example; a real markdown parser would be better.
+         * It primarily handles line breaks for pre-wrap to work.
+         * @param {string} markdownText - The markdown formatted text.
+         * @returns {string} HTML content.
+         */
+        function formatMarkdownToHtml(markdownText) {
+            // Very basic replacement to allow for easier table viewing, relies on resultOutput's CSS
+            return markdownText
+                .replace(/^#+\s*(.*)/gm, '<strong>$1</strong><br/>') // Basic header conversion
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold text
+                .replace(/\n/g, '<br>'); // Convert newlines to breaks
+        }
+        
+        // Event listener for Enter key on input field
+        verbInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchVerbForms();
+            }
+        });
+
+    </script>
+</body>
+</html>

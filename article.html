@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Articles (A, An, The)</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base Styling and Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #1f2937; /* Dark text for contrast */
+        }
+
+        /* Custom Card Animation for Entry */
+        .card-animate {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            border-radius: 1rem;
+        }
+        .card-animate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Quiz Specific Styles */
+        .question {
+            background-color: #ffffff;
+            border: 2px solid #e5e7eb;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .answer-blank {
+            display: inline-block;
+            min-width: 40px;
+            text-align: center;
+            border-bottom: 2px dashed #9ca3af;
+            font-weight: 700;
+            color: #1d4ed8;
+            padding: 0 4px;
+        }
+
+        .option-label {
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 9999px; /* Pill shape */
+            border: 2px solid #d1d5db;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+            font-size: 0.95rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* Feedback Colors */
+        .option-correct {
+            border-color: #10b981; /* Green */
+            background-color: #ecfdf5;
+            color: #065f46;
+        }
+        .option-incorrect {
+            border-color: #ef4444; /* Red */
+            background-color: #fef2f2;
+            color: #991b1b;
+        }
+
+        /* Hide default checkbox */
+        .option-label input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header: Modern, Animated Gradient -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-xl p-5 sm:p-6 text-white sticky top-0 z-10 rounded-b-xl">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight animate-pulse">
+            ENGLISH GRAMMAR
+        </h1>
+        <h2 class="text-xl sm:text-2xl font-light mt-1">
+            Mastering Articles (A, An, The)
+        </h2>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8 mb-24">
+
+        <!-- Introduction Card -->
+        <div class="bg-white p-6 sm:p-8 mt-6 shadow-lg card-animate">
+            <h3 class="text-xl sm:text-2xl font-bold text-indigo-700 mb-4 border-b-2 border-indigo-200 pb-2">
+                Introduction to Articles
+            </h3>
+            <p class="text-base sm:text-lg leading-relaxed mb-4">
+                Articles are the three words: **'a'**, **'an'**, and **'the'**. They are a type of **determiner** used before a noun (or a noun phrase) to specify whether the noun is general or specific.
+            </p>
+            <p class="text-base sm:text-lg leading-relaxed">
+                They are categorized into two types:
+                <ul class="list-disc list-inside mt-3 space-y-1 font-semibold text-gray-700">
+                    <li>**Indefinite Articles:** 'a' and 'an' (अनिश्चितता सूचक)</li>
+                    <li>**Definite Article:** 'the' (निश्चितता सूचक)</li>
+                </ul>
+            </p>
+        </div>
+
+        <!-- Indefinite Articles Section -->
+        <div class="mt-8 p-6 sm:p-8 bg-white shadow-lg card-animate">
+            <h4 class="text-center text-2xl font-extrabold text-teal-600 p-2 rounded-lg bg-teal-50 border-b-4 border-teal-200 mb-6">
+                Indefinite Articles: 'A' and 'An'
+            </h4>
+            <p class="text-lg font-medium text-gray-700 mb-4">
+                These are used when referring to a **non-specific** or **general** singular countable noun. Both 'a' and 'an' mean 'one' or 'any' of a particular kind.
+            </p>
+
+            <ul class="list-disc list-inside space-y-4 text-base sm:text-lg pl-4">
+                <li>
+                    <span class="font-bold text-blue-600">Use of 'A':</span> Used before a singular countable noun that begins with a **consonant sound** (not letter).
+                    <p class="mt-1 ml-4 italic text-gray-600">e.g., <span class="font-bold">a</span> book, <span class="font-bold">a</span> house, <span class="font-bold">a</span> European (starts with a 'y' sound), <span class="font-bold">a</span> union (starts with a 'y' sound).</p>
+                </li>
+                <li>
+                    <span class="font-bold text-blue-600">Use of 'An':</span> Used before a singular countable noun that begins with a **vowel sound** (not letter).
+                    <p class="mt-1 ml-4 italic text-gray-600">e.g., <span class="font-bold">an</span> ant, <span class="font-bold">an</span> image, <span class="font-bold">an</span> ox, <span class="font-bold">an</span> honest man (starts with an 'o' sound), <span class="font-bold">an</span> M.A. (starts with an 'em' sound).</p>
+                </li>
+                <li>
+                    <span class="font-bold text-blue-600">The deciding factor is the SOUND, not the spelling.</span>
+                </li>
+                <li>
+                    **A/An is NOT used before:**
+                    <ol class="list-lower-roman list-inside ml-4 mt-2 text-red-600 font-normal">
+                        <li>Uncountable nouns (e.g., water, honesty, milk).</li>
+                        <li>Plural nouns (e.g., boxes, boys).</li>
+                        <li>Proper nouns (e.g., Kathmandu, Ram).</li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Definite Article Section -->
+        <div class="mt-8 p-6 sm:p-8 bg-white shadow-lg card-animate">
+            <h4 class="text-center text-2xl font-extrabold text-teal-600 p-2 rounded-lg bg-teal-50 border-b-4 border-teal-200 mb-6">
+                Definite Article: 'The'
+            </h4>
+            <p class="text-lg font-medium text-gray-700 mb-4">
+                'The' indicates a **specific** noun. Unlike 'a/an', 'the' can be used before **singular, plural, countable, and uncountable** nouns, as long as they are specified or unique.
+            </p>
+            
+            <h5 class="text-xl font-bold text-indigo-700 mt-6 mb-3">Common Uses of 'The':</h5>
+            <ul class="list-disc list-inside space-y-3 text-base sm:text-lg pl-4">
+                <li>Before a noun that has been **mentioned before** (specific context): <span class="font-semibold">Ram bought a radio. The radio is very good.</span></li>
+                <li>Before **unique objects** (only one exists): <span class="font-semibold">the sun, the moon, the earth.</span></li>
+                <li>Before **superlatives** and **ordinals**: <span class="font-semibold">the biggest, the highest, the first, the second.</span></li>
+                <li>Before **names of specific geographical features**: seas, rivers, mountain ranges (plural), island groups, plural country names (e.g., <span class="font-semibold">the Pacific Ocean, the Himalayas, the USA, the Philippines</span>).</li>
+                <li>Before an adjective to refer to a **group of people**: <span class="font-semibold">the poor, the rich.</span></li>
+                <li>Before a noun made specific by a **phrase or clause**: <span class="font-semibold">The man in the black suit. The girl who helped me.</span></li>
+                <li>Before **specific institutions/places when used for a secondary purpose**: <span class="font-semibold">We went to the hospital to visit a friend.</span> (Primary purpose is to receive treatment).</li>
+            </ul>
+
+            <h5 class="text-xl font-bold text-red-700 mt-6 mb-3">Common Omissions (No Article):</h5>
+            <ul class="list-disc list-inside space-y-3 text-base sm:text-lg pl-4">
+                <li>Before most **proper nouns**: countries, towns, person names (e.g., <span class="font-semibold">Nepal, Paris, Nita</span>).</li>
+                <li>Before general **abstract nouns**: <span class="font-semibold">death, honesty, happiness</span> (used in a general sense).</li>
+                <li>Before the names of **meals** (used generally): <span class="font-semibold">breakfast, lunch, dinner</span>.</li>
+                <li>Before **mountain peaks** (singular), days, or months: <span class="font-semibold">Mt. Everest, Sunday, January.</span></li>
+                <li>Before **institutions when used for their primary purpose**: <span class="font-semibold">He goes to school to study. She is in hospital.</span></li>
+            </ul>
+        </div>
+
+        <!-- Interactive Exercise Section -->
+        <div class="mt-8 p-6 sm:p-8 bg-yellow-50 shadow-2xl card-animate border-4 border-yellow-400">
+            <h3 class="text-2xl font-extrabold text-amber-700 mb-4">Interactive Exercise (55 Questions!)</h3>
+            <h4 class="text-xl font-semibold text-amber-600 mb-6">Supply the suitable article in the following sentences where necessary:</h4>
+
+            <div id="questionsContainer" class="space-y-6">
+                <!-- Questions will be injected here by JavaScript -->
+            </div>
+            
+            <div id="scoreDisplay" class="mt-8 text-center text-2xl font-bold text-indigo-700 p-4 bg-indigo-100 rounded-lg hidden"></div>
+            <button id="submitButton" onclick="checkAllAnswers()" class="mt-6 w-full sm:w-auto px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105 shadow-md">
+                Check All Answers
+            </button>
+            <button id="resetButton" onclick="resetQuiz()" class="mt-4 w-full sm:w-auto px-6 py-3 bg-gray-500 text-white font-bold rounded-lg hover:bg-gray-600 transition duration-300 transform hover:scale-105 shadow-md">
+                Reset Quiz
+            </button>
+        </div>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4 fixed bottom-0 w-full shadow-inner">
+        <p class="text-sm">English Grammar</p>
+    </footer>
+
+    <script>
+        // Data containing all quiz questions and answers
+        const questions = [
+            { id: "q1", text: "Copper is _____ useful metal.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q2", text: "He is not _____ honourable man.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q3", text: "_____ able man has not always a distinguished look.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q4", text: "Honest men speak _____ truth.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q5", text: "Do you see _____ blue sky?", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q6", text: "Benares is _____ holy city.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q7", text: "Aladdin had _____ wonderful lamp.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q8", text: "The world is _____ happy place.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q9", text: "He returned after _____ hour.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q10", text: "_____ sun shines brightly.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q11", text: "I first met him _____ year ago.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q12", text: "Yesterday _____ European called at my office.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q13", text: "Sanskrit is _____ difficult language.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q14", text: "_____ Ganges is a sacred river.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q15", text: "French is _____ easy language.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q16", text: "_____ French defeated the Germans.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q17", text: "Which is _____ longest river in Nepal?", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q18", text: "Rama has come without _____ umbrella.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q19", text: "Pokhara is _____ very dear place to live in.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q20", text: "She is _____ untidy girl.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q21", text: "The children found _____ egg in the nest.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q22", text: "Hari wants to go to _____ USA.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q23", text: "_____ Mt. Everest is the highest peak of the world.", options: ["a", "an", "the", "No article"], correctOption: "No article" },
+            { id: "q24", text: "Football is _____ my favourite game.", options: ["a", "an", "the", "No article"], correctOption: "No article" },
+            { id: "q25", text: "He is _____ M.A. in English literature.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q26", text: "Please, pass me _____ book on the table.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q27", text: "Have you ever seen _____ UFO?", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q28", text: "_____ sky is clear tonight.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q29", text: "He is _____ actor of great talent.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q30", text: "She is _____ only one who can solve this problem.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q31", text: "_____ dog is barking loudly outside.", options: ["a", "an", "the", "No article"], correctOption: "a" }, // 'a' or 'the' depending on context, using 'a' for general
+            { id: "q32", text: "Are you going to _____ university after high school?", options: ["a", "an", "the", "No article"], correctOption: "a" }, // referring to 'a' university generally
+            { id: "q33", text: "My friend has _____ MBA in finance.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q34", text: "_____ honesty is a virtue.", options: ["a", "an", "the", "No article"], correctOption: "No article" },
+            { id: "q35", text: "_____ apple a day keeps the doctor away.", options: ["a", "an", "the", "No article"], correctOption: "An" }, // Capital A/An at start of sentence, using 'An'
+            { id: "q36", text: "Would you like _____ cup of tea?", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q37", text: "_____ bus arrives at this stop every hour.", options: ["a", "an", "the", "No article"], correctOption: "The" },
+            { id: "q38", text: "She takes _____ shower every morning.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q39", text: "_____ sun rises in the east.", options: ["a", "an", "the", "No article"], correctOption: "The" },
+            { id: "q40", text: "He enjoys eating _____ apple after dinner.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q41", text: "I'm going to buy _____ new car next month.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q42", text: "They went for _____ walk in the park.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q43", text: "She has _____ appointment with the dentist tomorrow.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q44", text: "We always have _____ dinner together as a family.", options: ["a", "an", "the", "No article"], correctOption: "No article" },
+            { id: "q45", text: "He needs _____ new pair of shoes for his job interview.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q46", text: "I'm going to make _____ cake for my friend's birthday.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q47", text: "She wants to adopt _____ dog from the shelter.", options: ["a", "an", "the", "No article"], correctOption: "a" },
+            { id: "q48", text: "_____ clock in the living room is broken.", options: ["a", "an", "the", "No article"], correctOption: "The" },
+            { id: "q49", text: "He bought _____ milk from the store yesterday.", options: ["a", "an", "the", "No article"], correctOption: "No article" }, // Milk is uncountable, used generally
+            { id: "q50", text: "I'm going to plant _____ flowers in the garden.", options: ["a", "an", "the", "No article"], correctOption: "No article" }, // Flowers is plural, used generally
+            { id: "q51", text: "She found _____ old coin in the garden.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q52", text: "He's studying to become _____ engineer.", options: ["a", "an", "the", "No article"], correctOption: "an" },
+            { id: "q53", text: "Please pass me _____ salt from the table.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q54", text: "They are going to visit _____ museum in the city center.", options: ["a", "an", "the", "No article"], correctOption: "the" },
+            { id: "q55", text: "He bought _____ umbrella from the store.", options: ["a", "an", "the", "No article"], correctOption: "an" }
+        ];
+
+        let userAnswers = {}; // To store user selections
+        const questionsContainer = document.getElementById("questionsContainer");
+
+        // Function to create a single question element
+        function createQuestionElement(question) {
+            const questionDiv = document.createElement("div");
+            questionDiv.className = "question p-4 rounded-lg shadow-sm";
+            questionDiv.id = question.id;
+
+            const questionNumber = questions.findIndex(q => q.id === question.id) + 1;
+            
+            // Format the question text with a blank space
+            const questionText = document.createElement("p");
+            const formattedText = question.text.replace("_____", '<span class="answer-blank" id="blank-' + question.id + '">_____</span>');
+            questionText.innerHTML = `<span class="font-bold text-gray-900">${questionNumber}.</span> ${formattedText}`;
+            questionDiv.appendChild(questionText);
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "mt-3 flex flex-wrap gap-2";
+
+            question.options.forEach(option => {
+                const isChecked = userAnswers[question.id] === option;
+                
+                // Create a label element that acts as a button
+                const label = document.createElement("label");
+                label.className = "option-label";
+                
+                // Set initial class based on saved state
+                if (isChecked && questionDiv.dataset.checked === 'true') {
+                    if (option === question.correctOption) {
+                        label.classList.add('option-correct');
+                    } else {
+                        label.classList.add('option-incorrect');
+                    }
+                }
+
+                label.innerHTML = `<input type="checkbox" name="${question.id}" value="${option}" ${isChecked ? 'checked' : ''}> ${option}`;
+                
+                label.addEventListener('click', function(event) {
+                    // Prevent immediate checkbox action to control the state
+                    event.preventDefault(); 
+                    handleOptionClick(question.id, option);
+                });
+                
+                optionsDiv.appendChild(label);
+            });
+
+            questionDiv.appendChild(optionsDiv);
+            questionsContainer.appendChild(questionDiv);
+            
+            // Update blank text if an answer is already selected (for persistence on re-render)
+            if (userAnswers[question.id]) {
+                 document.getElementById(`blank-${question.id}`).textContent = userAnswers[question.id];
+            }
+        }
+
+        // Handles the click on an option label
+        function handleOptionClick(questionID, selectedOption) {
+            const questionElement = document.getElementById(questionID);
+            const blankElement = document.getElementById(`blank-${questionID}`);
+            const correctOption = questions.find(q => q.id === questionID).correctOption;
+            const currentAnswer = userAnswers[questionID];
+            
+            // Get all labels for this question
+            const allLabels = questionElement.querySelectorAll('.option-label');
+            let newAnswer = '';
+
+            if (currentAnswer === selectedOption) {
+                // Deselecting the currently selected option
+                delete userAnswers[questionID];
+                newAnswer = '_____';
+                questionElement.removeAttribute('data-checked');
+            } else {
+                // Selecting a new option
+                userAnswers[questionID] = selectedOption;
+                newAnswer = selectedOption;
+                questionElement.setAttribute('data-checked', 'true');
+            }
+            
+            // Update blank text immediately
+            blankElement.textContent = newAnswer;
+            
+            // Update CSS styles for immediate visual feedback
+            allLabels.forEach(label => {
+                const checkbox = label.querySelector('input');
+                const optionValue = checkbox.value;
+                
+                label.classList.remove('option-correct', 'option-incorrect');
+                checkbox.checked = false; // Uncheck all first
+                
+                if (optionValue === selectedOption) {
+                    checkbox.checked = true; // Check the selected one
+                    // Apply feedback style (only if we check everything on submission)
+                    /* // If you want immediate color change uncomment this */
+                    if (selectedOption === correctOption) {
+                        label.classList.add('option-correct');
+                    } else {
+                        label.classList.add('option-incorrect');
+                    }
+                    
+                }
+            });
+            
+            // Clear overall score when user interacts
+            document.getElementById("scoreDisplay").classList.add('hidden');
+        }
+
+        // Initial render of questions
+        function renderQuestions() {
+            questionsContainer.innerHTML = '';
+            questions.forEach(createQuestionElement);
+        }
+        
+        // Final check and score calculation
+        function checkAllAnswers() {
+            let score = 0;
+            let totalQuestions = questions.length;
+
+            questions.forEach(question => {
+                const questionElement = document.getElementById(question.id);
+                const blankElement = document.getElementById(`blank-${question.id}`);
+                const allLabels = questionElement.querySelectorAll('.option-label');
+                const selectedAnswer = userAnswers[question.id];
+                
+                // Reset classes before checking
+                allLabels.forEach(label => label.classList.remove('option-correct', 'option-incorrect'));
+
+                if (selectedAnswer && selectedAnswer === question.correctOption) {
+                    score++;
+                    // Apply green style to the correct label
+                    allLabels.forEach(label => {
+                        if (label.querySelector('input').value === selectedAnswer) {
+                            label.classList.add('option-correct');
+                        }
+                    });
+                    blankElement.classList.add('text-green-600');
+                    blankElement.classList.remove('text-red-600', 'text-blue-700');
+                } else if (selectedAnswer) {
+                    // Apply red style to the incorrect selected label
+                    allLabels.forEach(label => {
+                        if (label.querySelector('input').value === selectedAnswer) {
+                            label.classList.add('option-incorrect');
+                        }
+                    });
+                     // Apply green style to show the correct answer
+                    allLabels.forEach(label => {
+                        if (label.querySelector('input').value === question.correctOption) {
+                            label.classList.add('option-correct');
+                        }
+                    });
+                    blankElement.classList.add('text-red-600');
+                    blankElement.classList.remove('text-green-600', 'text-blue-700');
+                } else {
+                    // Highlight the correct answer if none selected
+                    allLabels.forEach(label => {
+                        if (label.querySelector('input').value === question.correctOption) {
+                            label.classList.add('option-correct');
+                        }
+                    });
+                    blankElement.classList.remove('text-green-600', 'text-red-600');
+                }
+            });
+
+            const scoreDisplay = document.getElementById("scoreDisplay");
+            scoreDisplay.textContent = `Your Score: ${score} / ${totalQuestions}`;
+            scoreDisplay.classList.remove('hidden');
+        }
+        
+        // Function to reset the quiz
+        function resetQuiz() {
+            userAnswers = {};
+            document.getElementById("scoreDisplay").classList.add('hidden');
+            renderQuestions(); // Re-render to clear all visual feedback and selections
+        }
+
+        // Initial setup on window load
+        window.onload = renderQuestions;
+    </script>
+</body>
+
+</html>

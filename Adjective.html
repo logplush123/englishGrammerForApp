@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjectives & Types - Grammar Guide</title>
+    <!-- Load Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles & Variable Setup */
+        :root {
+            --primary-color: #004d99; /* Deep Blue */
+            --accent-color: #03b60e; /* Vibrant Green */
+            --bg-light: #f0f2f5;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: #1f2937; /* Dark Gray text */
+            min-height: 100vh;
+        }
+        .header-bg {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        .heading-primary {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+        .text-accent {
+            color: var(--accent-color);
+        }
+        .text-primary {
+            color: var(--primary-color);
+        }
+        .animate-pop-in {
+            animation: popIn 0.5s ease-out;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .list-item-style {
+            background-color: #f3f4f6;
+            border-left: 5px solid var(--accent-color);
+            padding: 0.75rem;
+            border-radius: 8px;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 640px) {
+            .card {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.75rem; }
+            p, li { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body class="pb-20">
+
+    <!-- Header Section -->
+    <header class="header-bg p-5 sticky top-0 z-10">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-4xl font-extrabold text-white tracking-widest animate-pulse">ENGLISH GRAMMAR GUIDE</h1>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="max-w-5xl mx-auto p-4 md:p-8">
+
+        <!-- Main Adjective Definition -->
+        <section class="card border-t-4 border-primary-color animate-pop-in">
+            <h2 class="text-3xl font-extrabold mb-4 heading-primary pb-3">Adjectives (विशेषण)</h2>
+            <h3 class="text-xl font-semibold mb-3 text-primary">
+                An adjective is a word that modifies, describes, or gives more information about a noun or a pronoun.
+            </h3>
+            <p class="text-gray-700 text-lg mb-4">
+                (नेपाली: **नाम वा सर्वनामको बारेमा थप जानकारी दिने, त्यसको विशेषता वा गुण बताउने शब्दलाई विशेषण भनिन्छ।**)
+            </p>
+            <div class="space-y-3">
+                <p class="list-item-style">
+                    १. He is <strong class="text-accent">helpful</strong>. (यहाँ 'helpful' ले 'He' को विशेषता जनाउँछ)
+                </p>
+                <p class="list-item-style">
+                    २. Rahul has a <strong class="text-accent">red</strong> cap. (यहाँ 'red' ले 'cap' को विशेषता/रंग जनाउँछ)
+                </p>
+            </div>
+        </section>
+
+        <!-- Types of Adjectives -->
+        <section class="card animate-pop-in">
+            <h2 class="text-3xl font-extrabold mb-6 heading-primary pb-3">Types of Adjectives (विशेषणका प्रकार)</h2>
+            <ol class="space-y-8 text-gray-700">
+                
+                <!-- 1. Adjective of Quality -->
+                <li>
+                    <h4 class="text-2xl font-bold mb-2 text-primary border-b-2 pb-1">१. Adjective of Quality (गुणवाचक विशेषण)</h4>
+                    <p class="mb-3">
+                        **Adjectives of quality describe the characteristic, kind, or state of a noun.**
+                        <span class="block text-sm italic text-gray-500 mt-1">(गुण, प्रकार वा अवस्थाको वर्णन गर्दछ।)</span>
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>She is an <strong class="text-accent">ugly</strong> girl.</li>
+                        <li>It’s a <strong class="text-accent">beautiful</strong> garden.</li>
+                        <li>The food is <strong class="text-accent">delicious</strong>.</li>
+                        <li>He is a <strong class="text-accent">tall</strong> boy.</li>
+                    </ul>
+                </li>
+                
+                <!-- 2. Adjective of Quantity -->
+                <li>
+                    <h4 class="text-2xl font-bold mb-2 text-primary border-b-2 pb-1">२. Adjective of Quantity (परिमाणवाचक विशेषण)</h4>
+                    <p class="mb-3">
+                        **Adjectives that describe the quantity (how much) of an uncountable noun.**
+                        <span class="block text-sm italic text-gray-500 mt-1">(नगन्न सकिने नामको परिमाणको वर्णन गर्दछ।)</span>
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>I don’t have <strong class="text-accent">much</strong> milk.</li>
+                        <li>You have <strong class="text-accent">little</strong> rice.</li>
+                        <li>Rahul has <strong class="text-accent">enough</strong> courage.</li>
+                        <li>He wants <strong class="text-accent">some</strong> money.</li>
+                    </ul>
+                </li>
+                
+                <!-- 3. Adjective of Number -->
+                <li>
+                    <h4 class="text-2xl font-bold mb-2 text-primary border-b-2 pb-1">३. Adjective of Number (संख्यावाचक विशेषण)</h4>
+                    <p class="mb-3">
+                        **Adjectives which indicate the exact number (one, two) or order (first, second), or general number (many, all) of a countable noun.**
+                        <span class="block text-sm italic text-gray-500 mt-1">(गन्न सकिने नामको संख्या वा क्रम जनाउँछ।)</span>
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>He has <strong class="text-accent">five</strong> marbles.</li>
+                        <li><strong class="text-accent">Each</strong> girl is dancing.</li>
+                        <li><strong class="text-accent">Every</strong> word is correct.</li>
+                        <li><strong class="text-accent">All</strong> men must die.</li>
+                    </ul>
+                </li>
+                
+                <!-- 4. Demonstrative adjective -->
+                <li>
+                    <h4 class="text-2xl font-bold mb-2 text-primary border-b-2 pb-1">४. Demonstrative Adjective (संकेतवाचक विशेषण)</h4>
+                    <p class="mb-3">
+                        **Adjectives (This, That, These, Those) that point out a specific person or thing.**
+                        <span class="block text-sm italic text-gray-500 mt-1">(कुनै खास व्यक्ति वा वस्तुलाई संकेत गर्ने विशेषण।)</span>
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong class="text-accent">This</strong> man is good.</li>
+                        <li><strong class="text-accent">That</strong> man is weak.</li>
+                        <li><strong class="text-accent">These</strong> mangoes are sour.</li>
+                    </ul>
+                </li>
+                
+                <!-- 5. Interrogative adjective -->
+                <li>
+                    <h4 class="text-2xl font-bold mb-2 text-primary border-b-2 pb-1">५. Interrogative Adjective (प्रश्नवाचक विशेषण)</h4>
+                    <p class="mb-3">
+                        **Adjectives like "what", "which", and "whose", when used immediately before nouns to ask questions.**
+                        <span class="block text-sm italic text-gray-500 mt-1">(प्रश्न सोध्नको लागि नामभन्दा ठिक अगाडि प्रयोग हुने विशेषण।)</span>
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong class="text-accent">Which</strong> kind of book do you have?</li>
+                        <li><strong class="text-accent">Whose</strong> house is this?</li>
+                        <li><strong class="text-accent">What</strong> pen will you buy?</li>
+                    </ul>
+                </li>
+                
+                <!-- 6. Possessive adjective (FIXED & NEPALI DETAILED) -->
+                <li>
+                    <h4 class="text-2xl font-bold mb-2 text-primary border-b-2 pb-1">६. Possessive Adjective (सम्बन्धवाचक विशेषण)</h4>
+                    <p class="mb-3">
+                        **Adjectives (my, your, his, her, its, our, their) that show the state of possession or ownership of the following noun.**
+                        <span class="block text-sm italic text-red-600 font-bold mt-1">(यसले नाममाथि स्वामित्व वा अधिकार देखाउँछ।)</span>
+                    </p>
+                    
+                    <h5 class="text-lg font-semibold mt-4 mb-2 text-primary">मुख्य Possessive Adjectives र नेपाली अर्थ:</h5>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-blue-50 p-4 rounded-lg text-sm md:text-base">
+                        <div class="p-2 bg-white rounded shadow-sm">**My** (मेरो)</div>
+                        <div class="p-2 bg-white rounded shadow-sm">**Your** (तिम्रो/तपाईंको)</div>
+                        <div class="p-2 bg-white rounded shadow-sm">**His** (उसको - पुरुष)</div>
+                        <div class="p-2 bg-white rounded shadow-sm">**Her** (उनको - महिला)</div>
+                        <div class="p-2 bg-white rounded shadow-sm">**Its** (यसको)</div>
+                        <div class="p-2 bg-white rounded shadow-sm">**Our** (हाम्रो)</div>
+                        <div class="p-2 bg-white rounded shadow-sm">**Their** (उनीहरूको)</div>
+                    </div>
+
+                    <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+                        <li>Where is <strong class="text-accent">my</strong> notebook?</li>
+                        <li>This is <strong class="text-accent">our</strong> property.</li>
+                        <li><strong class="text-accent">His</strong> mother is calling.</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p class="mt-8 p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded text-gray-800">
+                **Note (ध्यान दिनुहोस्):** Generally, an adjective comes before a noun (**attributive use**), but it can also follow a linking verb (like 'be', 'seem', 'look') (**predicative use**). 
+                <span class="block text-sm mt-1">(सामान्यतया, विशेषण नामभन्दा अगाडि आउँछ, तर यो 'be' जस्ता लिङ्किङ क्रियापछि पनि आउन सक्छ।)</span>
+            </p>
+        </section>
+        
+    </div>
+
+    <!-- Footer Styles -->
+    <footer class="header-bg p-3 fixed bottom-0 w-full text-center text-white text-sm mt-8">
+        English Grammar
+    </footer>
+
+</body>
+</html>

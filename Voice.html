@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Active To Passive</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #004d99;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            /* Ensure the table takes up 100% width of its container */
+            table-layout: fixed;
+            /* Fix table layout */
+            border-collapse: collapse;
+            /* Collapse borders */
+            text-align: left;
+            font-size: 16px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bolder;
+        }
+
+        table td,
+        th {
+            border: 1px solid #000;
+            /* Add border for cells */
+            padding: 8px;
+            /* Add padding for better readability */
+        }
+
+        table th {
+            color: red;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .activetopassive td {
+            color: rgb(247, 0, 222);
+        }
+
+        .voiceE {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bolder;
+            font-size: 16px;
+
+
+        }
+
+        .voiceE dl dt {
+            color: rgba(208, 0, 255, 0.987);
+        }
+
+        .voiceE dl dd {
+            color: #2804f4;
+        }
+
+        .question {
+            margin-bottom: 40px;
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .question input[type="text"] {
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .show-answer-btn {
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .show-answer-btn:hover {
+            background-color: #45a049;
+        }
+
+        .answer {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .ad {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        a {
+            color: #004d99;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #004d99;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a.button:hover {
+            background-color: #03b60e;
+        }
+
+
+        /* Media query for smaller devices */
+        @media only screen and (max-width: 600px) {
+            .content {
+                font-size: 12px;
+                /* Adjusted font size for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ENGLISH GRAMMER</h1>
+    </header>
+
+    <div class="content">
+        <h2 style="color: blue;"><u>Voice Transformation (Active to Passive)</u></h2>
+        <p>We will explore the transformation of active sentences into passive voice across five categories.</p>
+        <ol style="color: #2804f4; font-weight: bold;">
+            <li>Tense</li>
+            <li>Modal Verbs</li>
+            <li>Let</li>
+            <li>Imperative</li>
+            <li>Infinitive</li>
+        </ol>
+        <p>In active sentences, the structure typically follows:</p>
+        <p style="font-weight: bold; -webkit-flow-into: inherit; color: rgb(127, 7, 239);"><b>Subject + Main Verb (Verb)
+                + Object</b></p>
+        <p>For example:</p>
+        <p>He is reading a book.</p>
+        <p>The passive form of this sentence would be: "A book is being read by him."</p>
+
+        <h3
+            style="color: rgb(255, 13, 0); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            Formula: <br>
+            Active => Sub + M.V (V) + Obj <br>
+            Passive => Obj + V3 + by + Sub
+        </h3>
+
+        <h3><u>Personal Pronoun Chart</u></h3>
+
+        <table>
+            <tr>
+                <td>Persons</td>
+                <td>Subject Pronoun</td>
+                <td>Object Pronoun</td>
+            </tr>
+            <tr>
+                <td>First Person Singular</td>
+                <td>I</td>
+                <td>Me</td>
+            </tr>
+            <tr>
+                <td>First Person Plural</td>
+                <td>We</td>
+                <td>Us</td>
+            </tr>
+            <tr>
+                <td>Second Person Singular</td>
+                <td>You</td>
+                <td>You</td>
+            </tr>
+            <tr>
+                <td>Second Person Plural</td>
+                <td>You</td>
+                <td>You</td>
+            </tr>
+            <tr>
+                <td>Third Person Singular</td>
+                <td>He / She / It</td>
+                <td>Him / Her / It</td>
+            </tr>
+            <tr>
+                <td>Third Person Plural</td>
+                <td>They</td>
+                <td>Them</td>
+            </tr>
+        </table>
+
+        <h3><u>Chart 2 (Tense Category Chart)</u></h3>
+        <p>Watch the chart and remember, we will use the upper chart to change active to passive</p>
+        <table class="activetopassive">
+            <tr style="background-color: yellow;">
+                <td style="color: #000;">Tense</td>
+                <td style="color: #000;">Active Voice</td>
+                <td style="color: #000;">Passive voice</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Present Indefinite</td>
+                <th>Do, Does</th>
+                <td>Is, Am, Are</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Present Continuous</td>
+                <th>Is, Am, Are</th>
+                <td>Is, Am, Are + being</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Present Perfect</td>
+                <th>Has, Have</th>
+                <td>Has been, Have been</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Present Perfect Continuous</td>
+                <th>Has been, Have been</th>
+                <td>Has, Have been + being [Rare]</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Past Indefinite</td>
+                <th>Did</th>
+                <td>Was, Were</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Past Continuous</td>
+                <th>Was, Were</th>
+                <td>Was, Were + being</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Past Perfect</td>
+                <th>Had</th>
+                <td>Had been</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Past Perfect Continuous</td>
+                <th>Had been</th>
+                <td>Had been + being [RARE]</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Future Indefinite</td>
+                <th>Will</th>
+                <td>Will be</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Future Continuous</td>
+                <th>will be</th>
+                <td>will be + being [RARE]</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Future Perfect</td>
+                <th>will have</th>
+                <td>Will have been</td>
+            </tr>
+            <tr>
+                <td style="color: #000;">Future Perfect Continuous</td>
+                <th>will have been</th>
+                <td>will have been + being [RARE]</td>
+            </tr>
+        </table>
+        <h4 style="color: #004d99;"><u><b>Tense</b></u></h4>
+        <hr><br>
+        <p style="font-size: 16px;">Some Examples</p> <br>
+        <div class="voiceE">
+
+            <dl>
+                <dt>he plays footbell.</dt>
+                <dd>football is played by him.</dd>
+            </dl>
+
+            <dl>
+                <dt>she does not play circket.</dt>
+                <dd>circket is played by her.</dd>
+            </dl>
+
+            <dl>
+                <dt>Do i call you ?</dt>
+                <dd>Are you called by me ? </dd>
+            </dl>
+
+            <dl>
+                <dt>Rekhs was singing a song.</dt>
+                <dd>A song was being sung by Rekha.</dd>
+            </dl>
+
+            <dl>
+                <dt>They will inform you about it.</dt>
+                <dd>You will be informed about it by them.</dd>
+            </dl>
+
+            <dl>
+                <dt>I have watched this movie.</dt>
+                <dd>This movie has been watched by me.</dd>
+            </dl>
+
+            <dl>
+                <dt>Why did he call you ?</dt>
+                <dd>Why were you called by him ?</dd>
+            </dl>
+
+            <dl>
+                <dt>How much does he love his brother?</dt>
+                <dd>How much is he brother loved by him?</dd>
+            </dl>
+
+            <dl>
+                <dt>Rajni will have met Rashmi by the eviening.</dt>
+                <dd>Rashmi will have been met by the evieningby Rajni.</dd>
+            </dl>
+
+            <dl>
+                <dt>I did not do it, Trust me.</dt>
+                <dd>It was not done by me, Trust me.</dd>
+            </dl>
+            <p><b>
+
+                    <u> Some Reare Sentences </u> <br> <br>
+                    [ जून वाक्य लाइ हामी passive मा बदल्न सक्दैनौ ] तर कुनै sentences लाई passive मा त बदल्न सक्छौ तर
+                    आवशक धेरै कम हुन्छ |
+                    passive मा पनी बदल्नु पर्ने अवस्था आई हाल्छ , त्यस अवस्था मा,
+
+                </b></p>
+
+            <p style="font-size: 18px;">Some example</p>
+
+            <dl>
+                <dt>I have been asking you since morning.</dt>
+                <dd>You have been being asked by me since morning.</dd>
+            </dl>
+
+            <dl>
+                <dt>He will be opeaning the door at that moment.</dt>
+                <dd>The door will be being opened at that moment by him.</dd>
+            </dl>
+
+            <dl>
+                <dt>She had been reading that novel for months.</dt>
+                <dd>That novel had been being read by her for months.</dd>
+            </dl>
+
+            <dl>
+                <dt>He will have been watching cartoons since morning when you reach there.</dt>
+                <dd>Cartoons will have been being watched by him since morning when you reach there.</dd>
+            </dl>
+        </div>
+        <h4 style="color: #004d99;"><u><b>Modal Verbs</b></u></h4>
+        <hr>
+        <p>Modal verbs मा v1 सित be र v3 सित been को use गरिन्छ |</p>
+        <p style="font-size: 20px; color: #2804f4;">v1 => be <br> v3 => been</p>
+        <p style="font-size: 18px;">chart (Modal Category)</p>
+        <table class="modalCatogary">
+            <tr>
+                <td colspan="2" style="text-align: center; background-color: yellow;">Passive Voice Of Modal Verbs</td>
+
+            </tr>
+            <tr>
+                <td style="color: rgb(4, 0, 255);">Can, Could, Should, Shall, Must, May, Might, Has to , Have to, Had
+                    to, Used to, Would like to, Would, Will have to, mayhave to, might have to</td>
+                <td style="text-align: center; color: red; font-size: 40px;"><b>Be</b></td>
+            </tr>
+            <tr>
+                <td style="color: rgb(4, 0, 255);">Could have, should have, must have, would have, May have , Might have
+                </td>
+                <td style="text-align: center; font-size: 40px;">Been</td>
+            </tr>
+        </table>
+        <p style="font-size: 18px;">Some example</p>
+        <div class="voiceE">
+            <dl>
+                <dt>He may punish you for this negligence.</dt>
+                <dd>you may be punished by him for this negligence.</dd>
+            </dl>
+            <dl>
+                <dt>You should have attended the class today.</dt>
+                <dd>The class should have been attended by you today.</dd>
+            </dl>
+            <dl>
+                <dt>We must raise the matter in public.</dt>
+                <dd>This matter must be raised by us in public.</dd>
+            </dl>
+            <dl>
+                <dt>You would have given you the book.</dt>
+                <dd>you would have been given the books by her.</dd>
+                <dd><b style="color: #000;">second way => </b> The books would have been given to you by her.</dd>
+            </dl>
+        </div>
+        <h4 style="color: #004d99;"><u><b>Let</b></u></h4>
+        <hr>
+        <p>Let को use ३ अलग अलग वाक्य मा हुन्छ |</p>
+        <ol>
+            <li>Tense <details>
+                    <ol>
+                        <li>He lets me go.</li>
+                        <li>She doesn't let me read the book.</li>
+                        <li>I won't let you do it.</li>
+                    </ol>
+                </details>
+            </li>
+            <li>Modal
+                <details>
+                    <ol>
+                        <li>You should let him go.</li>
+                        <li>I can let you play.</li>
+                        <li>He should have let you do what you wanted to</li>
+                    </ol>
+                </details>
+            <li> Imperative
+                <details>
+                    <ol>
+                        <li>Let me play.</li>
+                        <li>Let him come.</li>
+                        <li>Let ravi speak.</li>
+                        <li>Don't let him go home.</li>
+                    </ol>
+                </details>
+            </li>
+            </li>
+        </ol>
+        <p>some Examples</p>
+        <p>Most of the case, Let as main verb को रूप मा use गरिन्छ |</p>
+        <div class="voiceE">
+            <p>Some Examples</p>
+            <dl>
+                <dt>He lets me go home.</dt>
+                <dd>I am let go home by him.</dd>
+            </dl>
+            <dl>
+                <dt>She didn't let me read the book. </dt>
+                <dd>I was not let read the book by her.</dd>
+            </dl>
+            <dl>
+                <dt>You should let him do it.</dt>
+                <dd>He should't be let did it by you.</dd>
+            </dl>
+            <dl>
+                <dt>I won't let you meet Aman</dt>
+                <dd>You will not be let meet Aman by me.</dd>
+            </dl>
+            <dl>
+                <dt>She is not letting me study.</dt>
+                <dd>I am not being let Study by her.</dd>
+            </dl>
+            <dl>
+                <dt>Why so you not let him come home?</dt>
+                <dd>why is he not let come home by you?</dd>
+            </dl>
+            <dl>
+                <dt>She had let me attend the class that day</dt>
+                <dd>i had been let attend the class that day by her.</dd>
+            </dl>
+        </div>
+        <h4 style="color: #004d99;"><u><b>Imperative Sentences</b></u></h4>
+        <hr>
+        <p>Imperative Sentences कसरी चिन्ने ?</p>
+        <p style="font-weight: bold; font-size: 20px;"> Imperative sentence मा की त order , की त advice, या की त Request
+            हुन्छ भने ती sentences Imperative sentences हुन | </p>
+        <p style="font-size: 18px;"><b>Imperative Sentences बनाउदा अगाडी Let थपी object जस्ता को त्यस्तै + be लेखी verb
+                को third form(v3) लेख्नु पर्छ | </b></p>
+        <div class="voiceE">
+            <p>Some Examples</p>
+            <dl>
+                <dt>Do it.</dt>
+                <dd>Let it be done.</dd>
+            </dl>
+            <dl>
+                <dt>You do it.</dt>
+                <dd>Let it be done by you.</dd>
+            </dl>
+            <dl>
+                <dt>open the door.</dt>
+                <dd>Let the door be opened.</dd>
+            </dl>
+            <dl>
+                <dt>Meet me tomorrow.</dt>
+                <dd>Let me be met tomorrow.</dd>
+            </dl>
+            <dl>
+                <dt>Ask him right now.</dt>
+                <dd>Let him be asked right now.</dd>
+            </dl>
+        </div>
+        <h4 style="color: #004d99;"><u><b>Infinitive</b></u></h4>
+        <hr>
+        <p style="font-size: 20px; color: #2804f4;">Active => To + v1 <br> Passive => To be + v3</p>
+        <div class="voiceE">
+            <p>Some Examples</p>
+            <dl>
+                <dt>There are 500 hundred books <u>To distribute</u> in this school.</dt>
+                <dd>There are 500 hundred books <u>To be distributed</u> in this school.</dd>
+            </dl>
+            <dl>
+                <dt>There was nothing <u>To do </u> in office.</dt>
+                <dd>There was nothing <b>To be done</b>in office.</dd>
+            </dl>
+            <dl>
+                <dt>I have a few books <u>To send</u> him.</dt>
+                <dd>I have a few books <u>To be sent</u> to him.</dd>
+            </dl>
+            <dl>
+                <dt>You have <u> To teach </u> him everyday.</dt>
+                <dd>He has <u> to be taught </u> by you everyday.</dd>
+            </dl>
+            <dl>
+                <dt>She had to ask me.</dt>
+                <dd>I had <u> to be asked </u> by her.</dd>
+            </dl>
+            <dl>
+                <dt>He needs <u> to clean </u> the room.</dt>
+                <dd>The room needs <u> to be cleaned </u> by him.</dd>
+            </dl>
+        </div>
+        <br> <br>
+        <h1>Exercise</h1>
+        <hr> <br><br>
+        <div class="voiceE">
+            <p><b>Exercise</b></p>
+            <h1>convert active to passice voice</h1>
+            <div id="questionsContainer"></div>
+            <div id="adContainer" class="ad" style="display: none;">
+                <!-- Ad content goes here -->
+                Advertisement: Buy now and save!
+            </div>
+            <p style="text-align: right; color: blueviolet;"><b>Good Luck</b></p>
+        </div>
+    </div>
+    
+    <footer>
+        English Grammer
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                question: "She wrote the letter.",
+                answer: "The letter was written by her."
+            },
+            {
+                question: "He rides his bike to school.",
+                answer: "His bike is ridden to school by him."
+            },
+            {
+                question: "You could not call him.",
+                answer: "He could not be called by you."
+            },
+            {
+                question: "They will have to arrange rs 2 lakh for this operation.",
+                answer: "rs 2 lakh will have to be arranged by them for this operation."
+            },
+            {
+                question: "Raveena had to clean the room.",
+                answer: "The room had to be cleaned by raveena."
+            },
+            {
+                question: "He used to play the music to make us dance.",
+                answer: "The music used to be played by him to make us dance."
+            },
+            {
+                question: "He Shouldn't let you play all the time.",
+                answer: "You shouldn't have been let play all the time by him"
+            },
+            {
+                question: "How often do you let him go to park?",
+                answer: "How often is he let go to park by you?"
+            },
+            {
+                question: "My brother never let me visit the taj.",
+                answer: "I was never let visit the taj by my brother."
+            },
+            {
+                question: "Wash the shirt.",
+                answer: "Let the shirt be washed."
+            },
+            {
+                question: "Help Rakeshs brother",
+                answer: "Let rakeshs brotherbe helped."
+            },
+            {
+                question: "Repair your mobile.",
+                answer: "Let your mobile be repaired."
+            },
+            {
+                question: "I have nothing to worry about.",
+                answer: "I have nothing to be worried about"
+            },
+            {
+                question: "Ravi seems to finish the work by the evening.",
+                answer: "The work seems to be finished by Ravi by the evening."
+            },
+            {
+                question: "Rekhs was singing a song.",
+                answer: "A song was being sung by Rekha."
+            },
+            {
+                question: "Rajni will have met Rashmi by the eviening.",
+                answer: "Rashmi will have been met by the evieningby Rajni."
+            },
+            {
+                question: "How much does he love his brother?",
+                answer: "How much is he brother loved by him?"
+            },
+            {
+                question: "I did not do it, Trust me.",
+                answer: "It was not done by me, Trust me."
+            },
+
+            {
+                question: "She had been reading that novel for months.",
+                answer: "That novel had been being read by her for months."
+            },
+        ];
+
+        const questionsContainer = document.getElementById('questionsContainer');
+        const adContainer = document.getElementById('adContainer');
+
+        questions.forEach((question, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+
+            const questionParagraph = document.createElement('p');
+            questionParagraph.textContent = question.question;
+
+            const inputField = document.createElement('input');
+            inputField.setAttribute('type', 'text');
+            inputField.setAttribute('placeholder', 'Change to passive voice');
+            inputField.dataset.index = index;
+
+            const answerParagraph = document.createElement('p');
+            answerParagraph.classList.add('answer');
+
+            const showAnswerButton = document.createElement('button');
+            showAnswerButton.textContent = 'Show Answer';
+            showAnswerButton.classList.add('show-answer-btn');
+
+            questionDiv.appendChild(questionParagraph);
+            questionDiv.appendChild(inputField);
+            questionDiv.appendChild(showAnswerButton);
+            questionDiv.appendChild(answerParagraph);
+
+            questionsContainer.appendChild(questionDiv);
+
+            inputField.addEventListener('input', () => {
+                const userAnswer = inputField.value.toLowerCase().trim();
+                const correctAnswer = question.answer.toLowerCase().trim();
+                inputField.style.backgroundColor = userAnswer === correctAnswer ? "lightgreen" : "lightcoral";
+            });
+
+            showAnswerButton.addEventListener('click', () => {
+                answerParagraph.textContent = question.answer;
+                adContainer.style.display = 'block'; // Show the ad
+            });
+        });
+    </script>
+</body>
+
+</html>

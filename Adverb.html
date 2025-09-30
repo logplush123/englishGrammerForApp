@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adverbs & Degrees of Comparison</title>
+    <!-- Load Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            min-height: 100vh;
+        }
+        .header-bg {
+            background-color: #004d99; /* Deep Blue */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .text-primary { color: #004d99; }
+        .text-accent { color: #03b60e; }
+        .table-header { background-color: #004d99; color: white; }
+        .table-cell { border-color: #d1d5db; }
+        
+        /* Ensures table readability on small screens by stacking */
+        @media (max-width: 640px) {
+            .degrees-table thead {
+                display: none;
+            }
+            .degrees-table tr {
+                display: block;
+                margin-bottom: 0.5rem;
+                border: 1px solid #d1d5db;
+                border-radius: 8px;
+            }
+            .degrees-table td {
+                display: block;
+                text-align: left !important;
+                border: none;
+                padding: 0.5rem 1rem;
+                position: relative;
+            }
+            .degrees-table td:before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #004d99;
+                width: 100px;
+                min-width: 100px;
+                display: inline-block;
+                margin-right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="pb-20">
+
+    <!-- Header Section -->
+    <header class="header-bg p-4 sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-white tracking-wider">ENGLISH GRAMMAR</h1>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="max-w-4xl mx-auto p-4 md:p-8">
+
+        <!-- Word Analyzer Tool (Updated) -->
+        <section class="card border-l-4 border-accent">
+            <h2 class="text-2xl font-bold mb-4 text-accent">Word Analyzer (शब्द विश्लेषक)</h2>
+            <p class="text-gray-600 mb-4">कुनै पनि शब्द प्रविष्ट गर्नुहोस् (जस्तै: good, fast, quickly) र यसको व्याकरणिक प्रकार (POS) र डिग्रीहरू जाँच गर्नुहोस्।</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="text" id="adverb-input" placeholder="e.g., good, fast, quickly"
+                       class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition duration-200">
+                <button id="check-button" onclick="handleWordCheck()"
+                        class="px-6 py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-accent transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                    Check Word
+                </button>
+            </div>
+            <div id="result-box" class="mt-4 p-4 border-2 border-dashed border-gray-200 rounded-lg min-h-[4rem] text-gray-700 transition-all duration-300">
+                <p id="result-text" class="italic">परिणाम यहाँ देखा पर्नेछ...</p>
+                <div id="loading-indicator" class="hidden flex items-center justify-center space-x-2">
+                    <div class="w-4 h-4 rounded-full bg-accent animate-bounce"></div>
+                    <div class="w-4 h-4 rounded-full bg-accent animate-bounce delay-150"></div>
+                    <div class="w-4 h-4 rounded-full bg-accent animate-bounce delay-300"></div>
+                    <span class="ml-2 font-medium">जाँच गर्दै...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Adverb Definition Section (Rest unchanged) -->
+        <section class="card">
+            <h2 class="text-3xl font-extrabold mb-4 text-primary border-b-2 pb-2 border-primary/20">Adverbs</h2>
+            <p class="mb-4 text-lg text-gray-700">
+                <span class="font-bold text-primary">Adverbs</span> are words (or phrases/clauses) that **modify** or provide additional information about a **verb**, an **adjective**, or another **adverb**.
+                They typically answer questions like *How*, *When*, *Where*, *To what extent*, or *How often*.
+            </p>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3 text-primary">Key Examples:</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+                <li>Ram runs <strong class="text-accent">fast</strong> (Modifies the verb *runs*).</li>
+                <li>He is <strong class="text-accent">very</strong> good (Modifies the adjective *good*).</li>
+                <li>She drives <strong class="text-accent">incredibly</strong> slowly (Modifies the adverb *slowly*).</li>
+                <li>I will come <strong class="text-accent">afterwards</strong> (Adverb of Time).</li>
+                <li>You can't go <strong class="text-accent">away</strong> (Adverb of Place).</li>
+                <li>He <strong class="text-accent">hardly</strong> comes here (Adverb of Frequency).</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mt-6 mb-3 text-primary">Adjective + -ly = Adverb</h3>
+            <p class="text-gray-700 mb-4">Many adverbs are formed by adding <strong class="text-accent">-ly</strong> to an adjective.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div class="p-3 bg-blue-50 rounded-lg">Nice (Adj) $\rightarrow$ Nicely (Adv)</div>
+                <div class="p-3 bg-blue-50 rounded-lg">Quick (Adj) $\rightarrow$ Quickly (Adv)</div>
+                <div class="p-3 bg-blue-50 rounded-lg">Sincere (Adj) $\rightarrow$ Sincerely (Adv)</div>
+                <div class="p-3 bg-blue-50 rounded-lg">Polite (Adj) $\rightarrow$ Politely (Adv)</div>
+            </div>
+        </section>
+
+        <!-- Degrees of Comparison Section (Adjectives/Adverbs) (Updated with Nepali) -->
+        <section class="card">
+            <h2 class="text-3xl font-extrabold mb-4 text-primary border-b-2 pb-2 border-primary/20">Degrees of Comparison</h2>
+            <p class="mb-4 text-lg text-gray-700">
+                Adjectives and some Adverbs can change form to show intensity. There are three main degrees:
+            </p>
+
+            <ul class="list-disc list-outside space-y-3 text-gray-700 ml-4 mb-6">
+                <li>
+                    <strong class="text-primary">Positive Degree:</strong> The base form, used for singular items or non-comparisons.
+                    <span class="text-sm block mt-1">(नेपाली: आधारभूत रूप, जुन एकल वस्तु वा तुलना नगरिएको अवस्थामा प्रयोग गरिन्छ।)</span>
+                    <em class="block italic text-sm text-gray-500">Example: The water is <span class="font-semibold">cold</span>.</em>
+                </li>
+                <li>
+                    <strong class="text-primary">Comparative Degree:</strong> Used to compare **two** things. Often formed by adding <strong class="text-accent">-er</strong> or using <strong class="text-accent">more/less</strong>.
+                     <span class="text-sm block mt-1">(नेपाली: **दुई** वस्तुहरू तुलना गर्न प्रयोग गरिन्छ। प्राय: $ -er $ जोडेर वा $ more/less $ प्रयोग गरेर बनाइन्छ।)</span>
+                    <em class="block italic text-sm text-gray-500">Example: The pool water is <span class="font-semibold">colder</span> than the ocean.</em>
+                </li>
+                <li>
+                    <strong class="text-primary">Superlative Degree:</strong> Used to compare **three or more** things. Often formed by adding <strong class="text-accent">-est</strong> or using <strong class="text-accent">most/least</strong>.
+                     <span class="text-sm block mt-1">(नेपाली: **तीन वा सोभन्दा बढी** वस्तुहरू तुलना गर्न प्रयोग गरिन्छ। प्राय: $ -est $ जोडेर वा $ most/least $ प्रयोग गरेर बनाइन्छ।)</span>
+                    <em class="block italic text-sm text-gray-500">Example: The ice water is the <span class="font-semibold">coldest</span> drink of all.</em>
+                </li>
+            </ul>
+
+            <!-- Responsive Table -->
+            <table class="w-full text-sm md:text-base border-2 border-primary rounded-lg overflow-hidden degrees-table">
+                <thead class="hidden sm:table-header-group">
+                    <tr class="table-header">
+                        <th class="p-3 text-left">Positive (Base Form)</th>
+                        <th class="p-3 text-left">Comparative</th>
+                        <th class="p-3 text-left">Superlative</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">fast (छिटो)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">faster</td>
+                        <td data-label="Superlative" class="p-3 table-cell">fastest</td>
+                    </tr>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">good (राम्रो)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">better</td>
+                        <td data-label="Superlative" class="p-3 table-cell">best</td>
+                    </tr>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">beautiful (सुंदर)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">more beautiful</td>
+                        <td data-label="Superlative" class="p-3 table-cell">most beautiful</td>
+                    </tr>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">few (केही)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">fewer</td>
+                        <td data-label="Superlative" class="p-3 table-cell">fewest</td>
+                    </tr>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">much (धेरै)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">more</td>
+                        <td data-label="Superlative" class="p-3 table-cell">most</td>
+                    </tr>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">happy (खुशी)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">happier</td>
+                        <td data-label="Superlative" class="p-3 table-cell">happiest</td>
+                    </tr>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">light (हल्का)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">lighter</td>
+                        <td data-label="Superlative" class="p-3 table-cell">lightest</td>
+                    </tr>
+                    <tr class="transition duration-150 hover:bg-gray-50">
+                        <td data-label="Positive" class="p-3 table-cell">hard (कठिन)</td>
+                        <td data-label="Comparative" class="p-3 table-cell">harder</td>
+                        <td data-label="Superlative" class="p-3 table-cell">hardest</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="header-bg p-4 fixed bottom-0 w-full text-center text-white text-sm">
+        English Grammar
+    </footer>
+
+    <script>
+        // --- Core JavaScript for Word Analyzer ---
+
+        // Data structure containing degrees and part of speech for common adjectives/adverbs
+        const WORD_DEGREES = {
+            'fast': { pos: 'Adverb/Adjective', comp: 'faster', sup: 'fastest', meaning: 'छिटो' },
+            'good': { pos: 'Adjective', comp: 'better', sup: 'best', meaning: 'राम्रो' },
+            'well': { pos: 'Adverb', comp: 'better', sup: 'best', meaning: 'राम्रोसँग' },
+            'clean': { pos: 'Adjective', comp: 'cleaner', sup: 'cleanest', meaning: 'सफा' },
+            'funny': { pos: 'Adjective', comp: 'funnier', sup: 'funniest', meaning: 'मजाक' },
+            'beautiful': { pos: 'Adjective', comp: 'more beautiful', sup: 'most beautiful', meaning: 'सुंदर' },
+            'few': { pos: 'Adjective', comp: 'fewer', sup: 'fewest', meaning: 'केही' },
+            'much': { pos: 'Adjective', comp: 'more', sup: 'most', meaning: 'धेरै' },
+            'big': { pos: 'Adjective', comp: 'bigger', sup: 'biggest', meaning: 'ठूलो' },
+            'small': { pos: 'Adjective', comp: 'smaller', sup: 'smallest', meaning: 'सानो' },
+            'happy': { pos: 'Adjective', comp: 'happier', sup: 'happiest', meaning: 'खुशी' },
+            'sad': { pos: 'Adjective', comp: 'sadder', sup: 'saddest', meaning: 'दुःखी' },
+            'hot': { pos: 'Adjective', comp: 'hotter', sup: 'hottest', meaning: 'तातो' },
+            'cold': { pos: 'Adjective', comp: 'colder', sup: 'coldest', meaning: 'ठंडा' },
+            'old': { pos: 'Adjective', comp: 'older', sup: 'oldest', meaning: 'पुरानो' },
+            'young': { pos: 'Adjective', comp: 'younger', sup: 'youngest', meaning: 'तरुण' },
+            'high': { pos: 'Adverb/Adjective', comp: 'higher', sup: 'highest', meaning: 'उच्च' },
+            'low': { pos: 'Adjective', comp: 'lower', sup: 'lowest', meaning: 'निम्न' },
+            'rich': { pos: 'Adjective', comp: 'richer', sup: 'richest', meaning: 'धनी' },
+            'poor': { pos: 'Adjective', comp: 'poorer', sup: 'poorest', meaning: 'गरिब' },
+            'thick': { pos: 'Adjective', comp: 'thicker', sup: 'thickest', meaning: 'मोटो' },
+            'thin': { pos: 'Adjective', comp: 'thinner', sup: 'thinnest', meaning: 'पातलो' },
+            'smart': { pos: 'Adjective', comp: 'smarter', sup: 'smartest', meaning: 'चालाक' },
+            'short': { pos: 'Adjective', comp: 'shorter', sup: 'shortest', meaning: 'सानो' },
+            'long': { pos: 'Adjective', comp: 'longer', sup: 'longest', meaning: 'लामो' },
+            'loud': { pos: 'Adjective', comp: 'louder', sup: 'loudest', meaning: 'उच्च स्वरमा' },
+            'quiet': { pos: 'Adjective', comp: 'quieter', sup: 'quietest', meaning: 'शान्त' },
+            'deep': { pos: 'Adjective', comp: 'deeper', sup: 'deepest', meaning: 'गहिरो' },
+            'shallow': { pos: 'Adjective', comp: 'shallower', sup: 'shallowest', meaning: 'तुन्नो' },
+            'sharp': { pos: 'Adjective', comp: 'sharper', sup: 'sharpest', meaning: 'तेज' },
+            'heavy': { pos: 'Adjective', comp: 'heavier', sup: 'heaviest', meaning: 'भारी' },
+            'light': { pos: 'Adjective', comp: 'lighter', sup: 'lightest', meaning: 'हल्का' },
+            'hard': { pos: 'Adverb/Adjective', comp: 'harder', sup: 'hardest', meaning: 'कठिन' },
+            'easy': { pos: 'Adjective', comp: 'easier', sup: 'easiest', meaning: 'सजिलो' },
+            'strong': { pos: 'Adjective', comp: 'stronger', sup: 'strongest', meaning: 'बलियो' },
+            'weak': { pos: 'Adjective', comp: 'weaker', sup: 'weakest', meaning: 'कमजोर' },
+            'wide': { pos: 'Adjective', comp: 'wider', sup: 'widest', meaning: 'फर्किएको' },
+            'narrow': { pos: 'Adjective', comp: 'narrower', sup: 'narrowest', meaning: 'सानो' },
+            'soft': { pos: 'Adjective', comp: 'softer', sup: 'softest', meaning: 'कमजोर' },
+            'firm': { pos: 'Adjective', comp: 'firmer', sup: 'firmest', meaning: 'सजिलो' },
+            'smooth': { pos: 'Adjective', comp: 'smoother', sup: 'smoothest', meaning: 'माझ' },
+            'little': { pos: 'Adjective', comp: 'less', sup: 'least', meaning: 'अलिकति' },
+            'bad': { pos: 'Adjective', comp: 'worse', sup: 'worst', meaning: 'खराब' },
+            'badly': { pos: 'Adverb', comp: 'worse', sup: 'worst', meaning: 'नराम्ररी' },
+        };
+        
+        // Simple adverbs (mostly of time, frequency, place) that don't take degrees or are covered by -ly rules
+        const SIMPLE_ADVERBS = ['quickly', 'sincerely', 'politely', 'always', 'never', 'often', 'tomorrow', 'here', 'there', 'hardly', 'just', 'already', 'early', 'late', 'everywhere', 'now', 'then', 'yesterday', 'nicely', 'slowly', 'incredibly', 'today', 'down', 'up', 'in', 'out', 'away'];
+
+
+        const inputElement = document.getElementById('adverb-input');
+        const resultTextElement = document.getElementById('result-text');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const checkButton = document.getElementById('check-button');
+
+        // Function to handle word analysis
+        async function handleWordCheck() {
+            const word = inputElement.value;
+            const trimmedWord = word.trim().toLowerCase();
+
+            if (!trimmedWord) {
+                resultTextElement.innerHTML = "कृपया जाँच गर्नको लागि कुनै शब्द प्रविष्ट गर्नुहोस्।";
+                return;
+            }
+
+            loadingIndicator.classList.remove('hidden');
+            resultTextElement.innerHTML = '';
+            checkButton.disabled = true;
+
+            try {
+                // Simulate a network delay (1.5 seconds) for the complex analysis
+                await new Promise(resolve => setTimeout(resolve, 1500)); 
+
+                let resultHtml = ``;
+
+                // --- 1. Adverb Check (POS) ---
+                const isAdverb = SIMPLE_ADVERBS.includes(trimmedWord) || trimmedWord.endsWith('ly') || (WORD_DEGREES[trimmedWord] && WORD_DEGREES[trimmedWord].pos.includes('Adverb'));
+                
+                resultHtml += `<h4 class="text-xl font-bold mb-2 text-primary">"${word}" को विश्लेषण:</h4>`;
+                
+                if (isAdverb) {
+                    resultHtml += `<p class="mb-4">यो शब्द <strong class="text-accent">Adverb (क्रिया-विशेषण)</strong> हो। यसले क्रिया, विशेषण वा अर्को क्रिया-विशेषणलाई परिमार्जन गर्दछ।</p>`;
+                } else if (WORD_DEGREES[trimmedWord] && WORD_DEGREES[trimmedWord].pos.includes('Adjective')) {
+                    resultHtml += `<p class="mb-4">यो शब्द मुख्य रूपमा <strong class="text-accent">Adjective (विशेषण)</strong> हो। यसले नाम वा सर्वनामलाई परिमार्जन गर्दछ।</p>`;
+                } else {
+                    resultHtml += `<p class="mb-4">यो शब्द Adverb वा Adjective दुवै होइन। यसको डिग्री परिवर्तन हुँदैन वा यो सूचीमा समावेश छैन।</p>`;
+                }
+
+
+                // --- 2. Degrees Check ---
+                const wordData = WORD_DEGREES[trimmedWord];
+                
+                if (wordData) {
+                    resultHtml += `<h4 class="text-xl font-bold mt-4 mb-3 text-primary border-t pt-3 border-gray-200">डिग्रीको परिवर्तन (Degrees of Comparison):</h4>`;
+                    resultHtml += `<div class="p-3 bg-blue-50 rounded-lg space-y-2 text-sm">`;
+                    resultHtml += `<p>नेपाली अर्थ: <strong class="text-primary">${wordData.meaning}</strong></p>`;
+                    resultHtml += `<p><strong class="font-semibold text-primary">Positive:</strong> ${trimmedWord}</p>`;
+                    resultHtml += `<p><strong class="font-semibold text-primary">Comparative:</strong> ${wordData.comp}</p>`;
+                    resultHtml += `<p><strong class="font-semibold text-primary">Superlative:</strong> ${wordData.sup}</p>`;
+                    resultHtml += `</div>`;
+                } else if (!isAdverb) {
+                     // Provide a fallback suggestion for words that can be made into adverbs
+                    if (!isAdverb && trimmedWord.endsWith('ly')) {
+                        resultHtml += `<p class="mt-4 italic text-gray-500">यो शब्द डिग्रीको सूचीमा छैन, तर यो <strong class="text-primary">Adverb</strong> को रूपमा प्रयोग हुन्छ।</p>`;
+                    } else if (!isAdverb && trimmedWord.length > 3) {
+                         // Suggest adverbial form if possible (e.g., quick -> quickly)
+                        resultHtml += `<p class="mt-4 italic text-gray-500">डिग्री परिवर्तन नहुने Adverb हरूको लागि: 'more' वा 'most' प्रयोग हुन्छ। उदाहरण: <strong class="text-accent">more/most quickly</strong></p>`;
+                    }
+                }
+                
+                resultTextElement.innerHTML = resultHtml;
+
+            } catch (error) {
+                console.error("Analysis Error:", error);
+                resultTextElement.innerHTML = "विश्लेषणको क्रममा त्रुटि भयो। कृपया फेरि प्रयास गर्नुहोस्।";
+            } finally {
+                loadingIndicator.classList.add('hidden');
+                checkButton.disabled = false;
+            }
+        }
+
+        // Allow pressing Enter key to trigger the check
+        inputElement.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleWordCheck();
+            }
+        });
+
+    </script>
+</body>
+</html>
